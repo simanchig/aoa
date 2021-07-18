@@ -50,28 +50,29 @@ public class Main {
 		xarakenergy = 200;
 		xarakanima = 200;
 		
-		System.out.println("Внимание!Сразу начните с строительства дома!!!Build SH");
+		System.out.println("Привет! Начните игру с строительства дома. Пишите команду buildHouse");
 		while(true){
 			Scanner scanner = new Scanner(System.in);
 			String command = scanner.nextLine();
+
 			if (xpanima == 100) {
 				lvlanima = 2;
 				energy += 10;
 				System.out.println("----------------");
-				System.out.println("Ваш уровень Анимы повышен до: " + lvlanima + ".");
-				System.out.println("Энергия: " + energy + ".");
+				System.out.println("Уровень Анимы повышен до: " + lvlanima + ".");
+				System.out.println("Ваша энергия: " + energy + ".");
 			} else if (xpanima == 300) {
 				lvlanima = 3;
 				energy += 10;
 				System.out.println("----------------");
-				System.out.println("Ваш уровень Анимы повышен до: " + lvlanima + ".");
-				System.out.println("Энергия: " + energy + ".");
+				System.out.println("Уровень Анимы повышен до: " + lvlanima + ".");
+				System.out.println("Ваша энергия: " + energy + ".");
 			} else if (xpanima == 800) {
 				lvlanima = 4;
 				energy += 15;
 				System.out.println("----------------");
-				System.out.println("Ваш уровень Анимы повышен до: " + lvlanima + ".");
-				System.out.println("Энергия: " + energy + ".");
+				System.out.println("Уровень Анимы повышен до: " + lvlanima + ".");
+				System.out.println("Ваша энергия: " + energy + ".");
 			}
             if (xpoxota == 150) {
 				lvloxota = 2;
@@ -104,6 +105,7 @@ public class Main {
 				System.out.println("Ваш уровень Путешевствия повышен до: " + lvltravel + ".");
 				System.out.println("Энергия: " + energy + ".");
 			}
+
 			switch(command) {
 				case "create":
 					if (energy >= 2) {
@@ -112,7 +114,7 @@ public class Main {
 						System.out.println("----------------");
 						System.out.println("Энергия: " + energy + ".");
 					} else {
-						System.out.println("Вам нехватает энергии ,поспите:sleep");
+						System.out.println("Вам нехватает энергии, поспите: sleep");
 					}
 		 		break;
 				case "make immortalis":
@@ -126,11 +128,11 @@ public class Main {
 							System.out.println("----------------");
 							System.out.println("Вы сделали Камень измерения Имморталиса");
 						} else if (dimesionStones <= 0){
-							System.out.println("Вам недостаточно пустых камней измерения,Сделайте их,команда create");
+							System.out.println("Вам недостаточно пустых камней измерения, сделайте их, команда: create");
 						}
 					} else {
 						System.out.println("----------------");
-						System.out.println("Вам недостаточно энергии!Требуеться 6 а у вас: " + energy + ".");
+						System.out.println("Вам недостаточно энергии! Требуется 6, а у вас: " + energy + ".");
 					}
 					
 				break;
@@ -160,7 +162,7 @@ public class Main {
 						xpanima += 5;
 						trees--;
 						wood += 5;
-						System.out.println("Вы срубили дерево!+ 5 древесиных толстых палок");
+						System.out.println("Вы срубили дерево! + 5 древесиных толстых палок");
 						System.out.println("+ 5 опыта Анимы.");
 						System.out.println("+ 10 опыта путешевствия.");
 						System.out.println(wood + "едениц дерева.");
@@ -172,7 +174,7 @@ public class Main {
 					System.out.println("----------------");
 					System.out.println("Пустых камней измерения: " + dimesionStones + ". Камни Имморталиса: " + KIimortalis + ". Древесины в инвентаре: " + wood + ". Рунического камня: " + runestoned + ". Камней измерения Гортензия: " + KIgortenzya + ".");
 				break;
-				case "Build SH":
+				case "buildHouse":
 					if (energy >= 30) {
 						if (wood >=64){
 							energy -= 30;
@@ -184,7 +186,7 @@ public class Main {
 							System.out.println("У вас теперь есть маленькая халупа");
 							System.out.println("+ 5 опыта Путешевствия.");
 						} else if (wood <=0){
-							System.out.println("Добудьте 64 едениц древесины!Вам не хватает!дт");
+							System.out.println("Добудьте 64 едениц древесины! Вам не хватает! дт");
 						}
 					}else {
 						System.out.println("Вам недостаточно энергии!Нужно 30 ,у вас: " + energy + ".");
@@ -204,7 +206,7 @@ public class Main {
 								System.out.println("Вам недастаточно Камней измерения Имморталиса,чтобы сделать make");
 							}
 						} else {
-							System.out.println("У вас нету построеного портала в доме!Постройте его Build Portal!");
+							System.out.println("У вас нету построеного портала в доме! Постройте его Build Portal!");
 						}
 					} else {
 						System.out.println("Вам недостаточно энергии!Нужно 1 ,у вас: " + energy + ".");
