@@ -7,7 +7,8 @@ import java.nio.file.FileSystems;
 
 public class GameSaver {
 	
-	final static String execDir = FileSystems.getDefault().getPath("").toAbsolutePath().toString();	
+	final static String execDir = "/sdcard/AppProjects/";
+	
 	public static void reset() {
 		Main.deactivatedportals = 0;
 		Main.activatedportals = 0;
@@ -32,7 +33,7 @@ public class GameSaver {
 		Main.wood = 0;
 		Main.aoa3runestone = 999999999;
 		
-		File saveFile = new File(execDir + "/save.data");
+		File saveFile = new File(execDir + "save.data");
 		if(saveFile.exists()) saveFile.delete();
 	}
 	
@@ -41,7 +42,7 @@ public class GameSaver {
 	    DataOutputStream dos = null;
 	    
         try {
-			fos = new FileOutputStream(execDir + "/save.data");
+			fos = new FileOutputStream(execDir + "save.data");
 			dos = new DataOutputStream(fos);
 			
 			dos.writeInt(Main.deactivatedportals);
@@ -78,7 +79,7 @@ public class GameSaver {
 	}
 	
 	public static void load() {
-		File saveFile = new File(execDir + "/save.data");
+		File saveFile = new File(execDir + "save.data");
 		if(!saveFile.exists()) {
 			System.out.println("Ошибка загрузки сохранения, его не найдено.");
 			return;
@@ -88,7 +89,7 @@ public class GameSaver {
 	    DataInputStream dis = null;
 	    
         try {
-        	fis = new FileInputStream(execDir + "/save.data");
+        	fis = new FileInputStream(execDir + "save.data");
         	dis = new DataInputStream(fis);
 			
 			Main.deactivatedportals = dis.readInt();
