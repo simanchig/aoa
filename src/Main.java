@@ -193,45 +193,96 @@ public class Main {
 					}
 				break;
 				case "activate Immortalis":
-					if (energy >= 1) {
-						if (deactivatedportals > 0) {
-							if (KIimortalis > 0) {
-								energy -= 1;
-								System.out.println("----------------");
-								System.out.println("Энергия: " + energy + ".");
-								KIimortalis--;
-								activatedportals++;
-								System.out.println("Вы успешно активировали портал в Имморталис!");
+					if (activatedportals == 0) {
+						if (energy >= 1) {
+							if (deactivatedportals > 0) {
+								if (KIimortalis > 0) {
+									energy -= 1;
+									System.out.println("----------------");
+									System.out.println("Энергия: " + energy + ".");
+									KIimortalis--;
+									activatedportals++;
+									System.out.println("Вы успешно активировали портал в Имморталис!");
+								} else {
+									System.out.println("Вам недастаточно Камней измерения Имморталиса,чтобы сделать make");
+								}
 							} else {
-								System.out.println("Вам недастаточно Камней измерения Имморталиса,чтобы сделать make");
+								System.out.println("У вас нету построеного портала в доме! Постройте его Build Portal!");
 							}
 						} else {
-							System.out.println("У вас нету построеного портала в доме! Постройте его Build Portal!");
+							System.out.println("Вам недостаточно энергии!Нужно 1 ,у вас: " + energy + ".");
 						}
 					} else {
-						System.out.println("Вам недостаточно энергии!Нужно 1 ,у вас: " + energy + ".");
+						if ( deactivatedportals > activatedportals) {
+							if (energy >= 1) {
+								if (deactivatedportals > 0) {
+									if (KIimortalis > 0) {
+										energy -= 1;
+										System.out.println("----------------");
+										System.out.println("Энергия: " + energy + ".");
+										KIimortalis--;
+										activatedportals++;
+										System.out.println("Вы успешно активировали портал в Имморталис!");
+									} else {
+										System.out.println("Вам недастаточно Камней измерения Имморталиса,чтобы сделать make");
+									}
+								} else {
+									System.out.println("У вас нету построеного портала в доме! Постройте его Build Portal!");
+								}
+							} else {
+								System.out.println("Вам недостаточно энергии!Нужно 1 ,у вас: " + energy + ".");
+							}
+						 }  else if (deactivatedportals == activatedportals) {
+							 System.out.println("У вас нету свободных порталов!Постройте его!Команда Build Portal");
+						 }
 					}
+					
 				break;
 				case "activate Gortenzya":
-					if (energy >= 1) {
-						if (deactivatedportals > 0) {
-							if (KIgortenzya > 0) {
-								energy -= 1;
-								
-								KIgortenzya--;
-								activatedportals++;
-								System.out.println("Энергия: " + energy + ".");
-								System.out.println("----------------");
-								System.out.println("Вы успешно активировали портал в Гардензию!");
+					if (activatedportals == 0) {
+						if (energy >= 1) {
+							if (deactivatedportals > 0) {
+								if (KIgortenzya > 0) {
+									energy -= 1;
+
+									KIgortenzya--;
+									activatedportals++;
+									System.out.println("Энергия: " + energy + ".");
+									System.out.println("----------------");
+									System.out.println("Вы успешно активировали портал в Гардензию!");
+								} else {
+									System.out.println("Вам недастаточно Камней измерения Гардензия,чтобы сделать make");
+								}
 							} else {
-								System.out.println("Вам недастаточно Камней измерения Гардензия,чтобы сделать make");
+								System.out.println("У вас нету построеного портала в доме!Постройте его Build Portal!");
 							}
 						} else {
-							System.out.println("У вас нету построеного портала в доме!Постройте его Build Portal!");
+							System.out.println("Вам недостаточно энергии!Нужно 1 ,у вас: " + energy + ".");
 						}
-					} else {
-						System.out.println("Вам недостаточно энергии!Нужно 1 ,у вас: " + energy + ".");
+					} else if (deactivatedportals > activatedportals) {
+						if (energy >= 1) {
+							if (deactivatedportals > 0) {
+								if (KIgortenzya > 0) {
+									energy -= 1;
+
+									KIgortenzya--;
+									activatedportals++;
+									System.out.println("Энергия: " + energy + ".");
+									System.out.println("----------------");
+									System.out.println("Вы успешно активировали портал в Гардензию!");
+								} else {
+									System.out.println("Вам недастаточно Камней измерения Гардензия,чтобы сделать make");
+								}
+							} else {
+								System.out.println("У вас нету построеного портала в доме!Постройте его Build Portal!");
+							}
+						} else {
+							System.out.println("Вам недостаточно энергии!Нужно 1 ,у вас: " + energy + ".");
+						}
+					} else if (deactivatedportals == activatedportals) {
+						System.out.println("У вас нету свободного портала!Постройте его с помощью команды: Build Portal");
 					}
+					
 					
 					break;
 				case "dstats":
