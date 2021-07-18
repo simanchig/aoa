@@ -51,6 +51,10 @@ public class Main {
 		xarakanima = 200;
 		
 		System.out.println("Привет! Начните игру с строительства дома. Пишите команду buildHouse");
+		System.out.println("___________");
+		System.out.println("ChangeLog:");
+		System.out.println("Version:1.0");
+		System.out.println("Пустая версия возможностей пока что мало(Ждите новые обновы скоро будет круто");
 		while(true){
 			Scanner scanner = new Scanner(System.in);
 			String command = scanner.nextLine();
@@ -73,7 +77,13 @@ public class Main {
 				System.out.println("----------------");
 				System.out.println("Уровень Анимы повышен до: " + lvlanima + ".");
 				System.out.println("Ваша энергия: " + energy + ".");
-			}
+			} else if (xpanima == 1200) {
+				lvlanima = 5;
+				energy += 20;
+				System.out.println("----------------");
+				System.out.println("Уровень Анимы повышен до: " + lvlanima + ".");
+				System.out.println("Ваша энергия: " + energy + ".");
+			} 
             if (xpoxota == 150) {
 				lvloxota = 2;
 				energy += 10;
