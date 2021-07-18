@@ -363,6 +363,15 @@ public class Main {
 							energy = 0;
 							System.out.println("Успешно!");
 							break;
+						case "save":
+							GameSaver.save();
+							break;
+						case "load":
+							GameSaver.load();
+							break;
+						case "reset":
+							GameSaver.reset();
+							break;
 				default:
 					System.out.println("Неизвестная команда");
 			}
