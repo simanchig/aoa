@@ -2,13 +2,12 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.nio.file.FileSystems;
 
 public class GameSaver {
 	
-	final static String execDir = System.getProperty("user.dir");
-	
+	final static String execDir = FileSystems.getDefault().getPath("").toAbsolutePath().toString();	
 	public static void reset() {
 		Main.deactivatedportals = 0;
 		Main.activatedportals = 0;
