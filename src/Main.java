@@ -137,7 +137,7 @@ public class Main {
 					
 				break;
 				case "make Gortenzya":
-					if(energy > 5) {
+					if(energy >= 5) {
 						if (dimesionStones > 0) {
 							energy -= 5;
 							System.out.println("----------------");
@@ -245,7 +245,7 @@ public class Main {
 						runestoned += 1;
 						System.out.println("Энергия: " + energy + ".");
 						System.out.println("----------------");
-						System.out.println("Вы добыли 2 рунический камень!+ 2 рунического камня");
+						System.out.println("Вы добыли 1 рунический камень!+ 1 рунический камень");
 					} else {
 						System.out.println("Вам недостаточно энергии!Нужно 5 ,у вас: " + energy + ".");
 					}
@@ -262,10 +262,10 @@ public class Main {
 									System.out.println("Энергия: " + energy + ".");
 									System.out.println("Вы успешно построили портал!Чтобы активировать,activate");
 								} else {
-									System.out.println("Вам недостаточно Рунического камня!Требуеться 10 камней,команда:fofrune");
+									System.out.println("Вам недостаточно Рунического камня!Требуеться 12 ,а у вас: " + runestoned + "камней,команда:fofrune");
 								}
 							} else {
-								System.out.println("Вам негде размещать портал!Постройте дом,команда:Build SH.");
+								System.out.println("Вам негде размещать портал!Постройте дом,команда:buildHouse.");
 							}
 						} else {
 							System.out.println("Вам недостаточно энергии!Нужно 10 ,у вас: " + energy + ".");
