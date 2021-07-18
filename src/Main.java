@@ -2,28 +2,29 @@ import java.util.Scanner;
 
 public class Main {
 	
+	public static int deactivatedportals;
+	public static int activatedportals;
 	public static int dimesionStones;
 	public static int KIimortalis;
-    public static int trees;
-	public static int homes;
-	public static double aoa3runestone;
-	public static int activatedportals;
-	public static int deactivatedportals;
 	public static int KIgortenzya;
+	public static int xarakstrong;
+	public static int xarakenergy;
 	public static int runestoned;
-	public static int wood;
-	public static int xpanima;
-	public static int lvlanima;
+	public static int xarakanima;
 	public static int aoa3sylph;
+	public static int lvltravel;
+	public static int xaraksoul;
+	public static int xptravel;
+	public static int lvlanima;
 	public static int lvloxota;
+	public static int xpanima;
 	public static int xpoxota;
 	public static int energy;
-	public static int lvltravel;
-	public static int xptravel;
-	public static int xarakstrong;
-	public static int xaraksoul;
-	public static int xarakanima;
-	public static int xarakenergy;
+	public static int homes;
+    public static int trees;
+	public static int wood;
+	
+	public static double aoa3runestone;
 	
 	public static void main(String[] args) {
 		dimesionStones = 0;
@@ -278,7 +279,7 @@ public class Main {
 					    System.out.println("Путешевствие - " + lvltravel + " уровень. Опыт: " + xptravel + "xp.");
 						System.out.println("__________");
 						System.out.println("Другое: ");
-						xarak();
+						stats();
 						
 					break;
 					case "убить":
@@ -383,7 +384,7 @@ public class Main {
 			System.out.println("У вас " + dimesionStones + " пустих камней измерений");
 		}
 	}
-	public static void xarak() {
+	public static void stats() {
 		System.out.println("__________");
 		System.out.println("Мощь: " + xarakstrong + ".");
 		System.out.println("__________");
