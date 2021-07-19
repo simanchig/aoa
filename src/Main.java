@@ -57,66 +57,13 @@ public class Main {
 		System.out.println("Пустая версия возможностей пока что мало(Ждите новые обновы скоро будет круто");
 		System.out.println("___________");
 		System.out.println("Пройдите обучение,команда: help");
-		while(true){
-			Scanner scanner = new Scanner(System.in);
+
+		Scanner scanner = new Scanner(System.in);
+
+		while(true) {
 			String command = scanner.nextLine();
 
-			if (xpanima == 100) {
-				lvlanima = 2;
-				energy += 10;
-				System.out.println("----------------");
-				System.out.println("Уровень Анимы повышен до: " + lvlanima + ".");
-				System.out.println("Ваша энергия: " + energy + ".");
-			} else if (xpanima == 300) {
-				lvlanima = 3;
-				energy += 10;
-				System.out.println("----------------");
-				System.out.println("Уровень Анимы повышен до: " + lvlanima + ".");
-				System.out.println("Ваша энергия: " + energy + ".");
-			} else if (xpanima == 800) {
-				lvlanima = 4;
-				energy += 15;
-				System.out.println("----------------");
-				System.out.println("Уровень Анимы повышен до: " + lvlanima + ".");
-				System.out.println("Ваша энергия: " + energy + ".");
-			} else if (xpanima == 1200) {
-				lvlanima = 5;
-				energy += 20;
-				System.out.println("----------------");
-				System.out.println("Уровень Анимы повышен до: " + lvlanima + ".");
-				System.out.println("Ваша энергия: " + energy + ".");
-			} 
-            if (xpoxota == 150) {
-				lvloxota = 2;
-				energy += 10;
-				System.out.println("----------------");
-				System.out.println("Ваш уровень навыка \"Охота\" повышен до уровня: " + lvloxota + ".");
-				System.out.println("Энергия: " + energy + ".");
-			} else if (xpoxota == 500) {
-				lvloxota = 3;
-				energy += 20;
-				System.out.println("----------------");
-				System.out.println("Ваш уровень навыка \"Охота\" повышен до уровня: " + lvloxota + ".");
-				System.out.println("Энергия: " + energy + ".");
-			} else if (xpoxota == 1000) {
-				lvloxota = 4;
-				energy += 20;
-				System.out.println("----------------");
-				System.out.println("Ваш уровень навыка \"Охота\" повышен до уровня: " + lvloxota + ".");
-			  	System.out.println("Энергия: " + energy + ".");
-		    } if (xptravel == 100) {
-				lvltravel = 2;
-				energy += 10;
-				System.out.println("----------------");
-				System.out.println("Ваш уровень Путешевствия повышен до: " + lvltravel + ".");
-				System.out.println("Энергия: " + energy + ".");
-			  } else if (xptravel == 300) {
-				lvltravel = 3;
-				energy += 10;
-				System.out.println("----------------");
-				System.out.println("Ваш уровень Путешевствия повышен до: " + lvltravel + ".");
-				System.out.println("Энергия: " + energy + ".");
-			}
+			checkXp();
 
 			switch(command) {
 				case "create":
@@ -217,7 +164,7 @@ public class Main {
 									System.out.println("----------------");
 									System.out.println("Энергия: " + energy + ".");
 									KIimortalis--;
-									-- deactivatedportals;
+									--deactivatedportals;
 									activatedportals++;
 									System.out.println("Вы успешно активировали портал в Имморталис!");
 								} else {
@@ -313,131 +260,35 @@ public class Main {
 					} else {
 						System.out.println("Вам недостаточно энергии!Нужно 5 ,у вас: " + energy + ".");
 					}
-					
-					break;
-					case "Build Portal":
-						if (energy >= 10) {
-							if (homes > 0) {
-								if (runestoned >= 12) {
-									energy -= 10;
-									runestoned -= 12;
-									deactivatedportals++;
-									System.out.println("----------------");
-									System.out.println("Энергия: " + energy + ".");
-									System.out.println("Вы успешно построили портал!Чтобы активировать,activate");
-								} else {
-									System.out.println("Вам недостаточно Рунического камня!Требуеться 12 ,а у вас: " + runestoned + "камней,команда:for");
-								}
-							} else {
-								System.out.println("Вам негде размещать портал!Постройте дом,команда:buildHouse.");
-							}
-						} else {
-							System.out.println("Вам недостаточно энергии!Нужно 10 ,у вас: " + energy + ".");
-						}
-						
-					break;
-					case "Навыки":
-					    System.out.println("----------------");
-						System.out.println("Анима - " + lvlanima + " уровень. Опыт: " + xpanima + "xp.");
-					    System.out.println("----------------");
-					    System.out.println("Охота - " + lvloxota + " уровень. Опыт: " + xpoxota + "xp.");
-					    System.out.println("----------------");
-					    System.out.println("Путешевствие - " + lvltravel + " уровень. Опыт: " + xptravel + "xp.");
-						System.out.println("__________");
-						System.out.println("Другое: ");
-						stats();
-						
-					break;
-					case "убить":
-						if (xarakstrong >= 100) {
-							if (energy >= 6) {
-								energy -= 6;
-								xptravel += 40;
-								aoa3sylph -= 0.4;
-								xpoxota += 15;
-								xarakstrong -= 60;
-								System.out.println("------------------");
-								System.out.println("Энергия: " + energy + ".");
-								System.out.println("Вы убили: Крипера");
-								System.out.println("+ 15 опыта Охоты.");
-								System.out.println("+ 40 опыта Путешевствия.");
-							} else {
-								System.out.println("Вам недостаточно энергии!Нужно 6 ,у вас: " + energy + ".");
-							}
-						
-					   } else if (xarakstrong >= 175) {
-							if (energy >= 4) {
-								energy -= 4;
-								xptravel += 50;
-								aoa3sylph -= 0.2;
-								xpoxota += 30;
-								xarakstrong -= 80;
-								System.out.println("------------------");
-								System.out.println("Энергия: " + energy + ".");
-								System.out.println("Вы убили: Мини босса");
-								System.out.println("+ 30 опыта Охоты.");
-								System.out.println("+ 50 опыта Путешевствия.");
-							} else {
-								System.out.println("Вам недостаточно энергии!Нужно 4 ,у вас: " + energy + ".");
-					     	}
-					   } else if (xarakstrong == 0) {
-							if (energy >= 10) {
-								energy -= 10;
-								xptravel += 30;
-								aoa3sylph -= 0.5;
-								xpoxota += 10;
-								
-								System.out.println("------------------");
-								System.out.println("Энергия: " + energy + ".");
-								System.out.println("Вы убили: Сильфа");
-								System.out.println("+ 10 опыта Охоты.");
-								System.out.println("+ 30 опыта Путешевствия.");
-							} else {
-								System.out.println("Вам недостаточно энергии!Нужно 10 ,у вас: " + energy + ".");
-							}
-						} else {
-							if (energy >= 8) {
-								xarakstrong -= 20;
-								energy -= 8;
-								xptravel += 30;
-								aoa3sylph -= 0.5;
-								xpoxota += 10;
-								System.out.println("------------------");
-								System.out.println("Энергия: " + energy + ".");
-								System.out.println("Вы убили: Сильфа");
-								System.out.println("+ 10 опыта Охоты.");
-								System.out.println("+ 30 опыта Путешевствия.");
-							} else {
-								System.out.println("Вам недостаточно энергии!Нужно 8 ,у вас: " + energy + ".");
-							}
-						}
-						
-						break;
-						case "sleep":
-							if (homes > 0) {
-									energy = 100;
-									System.out.println("Вы успешно ввостановили энергию");
-							}
-							 else {
-								System.out.println("Вам негде спать!Постройте дом!Build SH");
-							}
-						break;
-						case "ce":
-							energy = 0;
-							System.out.println("Успешно!");
-							break;
-						case "save":
-							GameSaver.save();
-							break;
-						case "load":
-							GameSaver.load();
-							break;
-						case "reset":
-							GameSaver.reset();
-							break;
-						case "help":
-							Help.help();
-							break;
+				break;
+				case "buildPortal":
+					CommandHandler.cmdBuildPortal();						
+				break;
+				case "skills":
+				    CommandHandler.cmdSkills();
+				break;
+				case "kill":
+					CommandHandler.cmdKill();
+				break;
+				case "sleep":
+					CommandHandler.cmdSleep();
+				break;
+				case "ce":
+					energy = 0;
+					System.out.println("Успешно!");
+				break;
+				case "save":
+					GameSaver.save();
+				break;
+				case "load":
+					GameSaver.load();
+				break;
+				case "reset":
+					GameSaver.reset();
+				break;
+				case "help":
+					Help.help();
+				break;
 				default:
 					System.out.println("Неизвестная команда");
 			}
@@ -468,6 +319,65 @@ public class Main {
 		System.out.println("Анима: " + xarakanima + ".");
 		System.out.println("__________");
 		System.out.println("Душа: " + xaraksoul + ".");
+	}
+
+	public static void checkXp() {
+		if (xpanima == 100) {
+				lvlanima = 2;
+				energy += 10;
+				System.out.println("----------------");
+				System.out.println("Уровень Анимы повышен до: " + lvlanima + ".");
+				System.out.println("Ваша энергия: " + energy + ".");
+			} else if (xpanima == 300) {
+				lvlanima = 3;
+				energy += 10;
+				System.out.println("----------------");
+				System.out.println("Уровень Анимы повышен до: " + lvlanima + ".");
+				System.out.println("Ваша энергия: " + energy + ".");
+			} else if (xpanima == 800) {
+				lvlanima = 4;
+				energy += 15;
+				System.out.println("----------------");
+				System.out.println("Уровень Анимы повышен до: " + lvlanima + ".");
+				System.out.println("Ваша энергия: " + energy + ".");
+			} else if (xpanima == 1200) {
+				lvlanima = 5;
+				energy += 20;
+				System.out.println("----------------");
+				System.out.println("Уровень Анимы повышен до: " + lvlanima + ".");
+				System.out.println("Ваша энергия: " + energy + ".");
+			} 
+            if (xpoxota == 150) {
+				lvloxota = 2;
+				energy += 10;
+				System.out.println("----------------");
+				System.out.println("Ваш уровень навыка \"Охота\" повышен до уровня: " + lvloxota + ".");
+				System.out.println("Энергия: " + energy + ".");
+			} else if (xpoxota == 500) {
+				lvloxota = 3;
+				energy += 20;
+				System.out.println("----------------");
+				System.out.println("Ваш уровень навыка \"Охота\" повышен до уровня: " + lvloxota + ".");
+				System.out.println("Энергия: " + energy + ".");
+			} else if (xpoxota == 1000) {
+				lvloxota = 4;
+				energy += 20;
+				System.out.println("----------------");
+				System.out.println("Ваш уровень навыка \"Охота\" повышен до уровня: " + lvloxota + ".");
+			  	System.out.println("Энергия: " + energy + ".");
+		    } if (xptravel == 100) {
+				lvltravel = 2;
+				energy += 10;
+				System.out.println("----------------");
+				System.out.println("Ваш уровень Путешевствия повышен до: " + lvltravel + ".");
+				System.out.println("Энергия: " + energy + ".");
+			  } else if (xptravel == 300) {
+				lvltravel = 3;
+				energy += 10;
+				System.out.println("----------------");
+				System.out.println("Ваш уровень Путешевствия повышен до: " + lvltravel + ".");
+				System.out.println("Энергия: " + energy + ".");
+			}
 	}
 }
 
