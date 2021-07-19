@@ -55,6 +55,8 @@ public class Main {
 		System.out.println("ChangeLog:");
 		System.out.println("Version:1.0");
 		System.out.println("Пустая версия возможностей пока что мало(Ждите новые обновы скоро будет круто");
+		System.out.println("___________");
+		System.out.println("Пройдите обучение,команда: help");
 		while(true){
 			Scanner scanner = new Scanner(System.in);
 			String command = scanner.nextLine();
@@ -300,7 +302,7 @@ public class Main {
 					System.out.println("----------------");
 					System.out.println("Ваши дома: " + homes + ". Ваши активированные порталы: " + activatedportals + ". Ваши неактивированные порталы: " + deactivatedportals +". Деревьев в мире: " + trees + ". Рунического камня : " + aoa3runestone + ". Сильфоф в мире: " + aoa3sylph + ".");
 	            break;
-				case "fofrune":
+				case "for":
 					if (energy >= 5){
 						energy -= 5;
 						aoa3runestone -= 0.5;
@@ -324,7 +326,7 @@ public class Main {
 									System.out.println("Энергия: " + energy + ".");
 									System.out.println("Вы успешно построили портал!Чтобы активировать,activate");
 								} else {
-									System.out.println("Вам недостаточно Рунического камня!Требуеться 12 ,а у вас: " + runestoned + "камней,команда:fofrune");
+									System.out.println("Вам недостаточно Рунического камня!Требуеться 12 ,а у вас: " + runestoned + "камней,команда:for");
 								}
 							} else {
 								System.out.println("Вам негде размещать портал!Постройте дом,команда:buildHouse.");
@@ -432,6 +434,9 @@ public class Main {
 							break;
 						case "reset":
 							GameSaver.reset();
+							break;
+						case "help":
+							Help.help();
 							break;
 				default:
 					System.out.println("Неизвестная команда");
