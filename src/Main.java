@@ -130,9 +130,9 @@ public class Main {
 					}
 		 		break;
 				case "make immortalis":
-					if (energy >= 6) {
+					if (energy >= 5) {
 						if (dimesionStones > 0){
-							energy -= 6;
+							energy -= 5;
 							System.out.println("----------------");
 							System.out.println("Энергия: " + energy + ".");
 							dimesionStones--;
@@ -144,7 +144,7 @@ public class Main {
 						}
 					} else {
 						System.out.println("----------------");
-						System.out.println("Вам недостаточно энергии! Требуется 6, а у вас: " + energy + ".");
+						System.out.println("Вам недостаточно энергии! Требуется 5, а у вас: " + energy + ".");
 					}
 					
 				break;
