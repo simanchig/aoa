@@ -203,6 +203,10 @@ public class Main {
 					}
 				break;
 				case "activate Immortalis":
+					//
+					//
+					//
+					// тут какието баги пж исправь их я пишу команду и ничего не происходит,опять наверное скобки неправильно расставил!
 					if (activatedportals == 0) {
 						if (energy >= 1) {
 							if (deactivatedportals > 0) {
@@ -211,42 +215,38 @@ public class Main {
 									System.out.println("----------------");
 									System.out.println("Энергия: " + energy + ".");
 									KIimortalis--;
+									-- deactivatedportals;
 									activatedportals++;
 									System.out.println("Вы успешно активировали портал в Имморталис!");
 								} else {
 									System.out.println("Вам недастаточно Камней измерения Имморталиса,чтобы сделать make");
 								}
-							} else {
+						   } else {
 								System.out.println("У вас нету построеного портала в доме! Постройте его Build Portal!");
-							}
-						} else {
+					       }
+					  } else {
 							System.out.println("Вам недостаточно энергии!Нужно 1 ,у вас: " + energy + ".");
-						}
-					} else {
-						if ( deactivatedportals > activatedportals) {
+					  }
+				    } else if ( deactivatedportals > activatedportals) {
 							if (energy >= 1) {
-								if (deactivatedportals > 0) {
-									if (KIimortalis > 0) {
+								if (KIimortalis > 0) {
 										energy -= 1;
 										System.out.println("----------------");
 										System.out.println("Энергия: " + energy + ".");
-										KIimortalis--;
+						      			KIimortalis--;
 										activatedportals++;
 										System.out.println("Вы успешно активировали портал в Имморталис!");
-									} else {
-										System.out.println("Вам недастаточно Камней измерения Имморталиса,чтобы сделать make");
-									}
 								} else {
-									System.out.println("У вас нету построеного портала в доме! Постройте его Build Portal!");
+										System.out.println("Вам недастаточно Камней измерения Имморталиса,чтобы сделать make");
 								}
+								
 							} else {
 								System.out.println("Вам недостаточно энергии!Нужно 1 ,у вас: " + energy + ".");
-							}
-						 }  else if (deactivatedportals == activatedportals) {
+						    }
+				    }  else if (deactivatedportals == 0) {
 							 System.out.println("У вас нету свободных порталов!Постройте его!Команда Build Portal");
-						 }
-					}
-					
+				    }
+				
 				break;
 				case "activate Gortenzya":
 					if (activatedportals == 0) {
@@ -256,6 +256,7 @@ public class Main {
 									energy -= 1;
 
 									KIgortenzya--;
+									deactivatedportals--;
 									activatedportals++;
 									System.out.println("Энергия: " + energy + ".");
 									System.out.println("----------------");
@@ -269,7 +270,7 @@ public class Main {
 						} else {
 							System.out.println("Вам недостаточно энергии!Нужно 1 ,у вас: " + energy + ".");
 						}
-					} else if (deactivatedportals > activatedportals) {
+				  } else if (deactivatedportals > activatedportals) {
 						if (energy >= 1) {
 							if (deactivatedportals > 0) {
 								if (KIgortenzya > 0) {
@@ -289,7 +290,7 @@ public class Main {
 						} else {
 							System.out.println("Вам недостаточно энергии!Нужно 1 ,у вас: " + energy + ".");
 						}
-					} else if (deactivatedportals == activatedportals) {
+					} else if (deactivatedportals < activatedportals) {
 						System.out.println("У вас нету свободного портала!Постройте его с помощью команды: Build Portal");
 					}
 					
@@ -297,7 +298,7 @@ public class Main {
 					break;
 				case "dstats":
 					System.out.println("----------------");
-					System.out.println("Ваши дома: " + homes + ". Ваши порталы: " + activatedportals + ". Деревьев в мире: " + trees + ". Рунического камня : " + aoa3runestone + ". Сильфоф в мире: " + aoa3sylph + ".");
+					System.out.println("Ваши дома: " + homes + ". Ваши активированные порталы: " + activatedportals + ". Ваши неактивированные порталы: " + deactivatedportals +". Деревьев в мире: " + trees + ". Рунического камня : " + aoa3runestone + ". Сильфоф в мире: " + aoa3sylph + ".");
 	            break;
 				case "fofrune":
 					if (energy >= 5){
@@ -412,13 +413,10 @@ public class Main {
 						break;
 						case "sleep":
 							if (homes > 0) {
-								if (energy == 0) {
-									energy += 100;
+									energy = 100;
 									System.out.println("Вы успешно ввостановили энергию");
-								} else {
-									System.out.println("Вы недостаточно устали!У вас " + energy + "энергии  а надо чтобы было 0");
-								}
-							} else {
+							}
+							 else {
 								System.out.println("Вам негде спать!Постройте дом!Build SH");
 							}
 						break;
