@@ -61,6 +61,7 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 
 		while(true) {
+			System.out.print("> ");
 			String command = scanner.nextLine();
 
 			checkXp();
