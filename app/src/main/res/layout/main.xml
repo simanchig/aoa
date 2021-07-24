@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:background="#000000">
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:weightSum="1.0"
+		android:gravity="center_vertical|center_horizontal">
+
+		<EditText
+			android:layout_width="220dp"
+			android:layout_height="match_parent"
+			android:hint="Type a command here ..."
+			android:id="@+id/commandField"
+			android:textColor="#FFFFFF"/>
+
+		<Button
+			android:layout_width="wrap_content"
+			style="?android:attr/buttonBarButtonStyle"
+			android:layout_height="match_parent"
+			android:text="OK"
+			android:id="@+id/okButton"
+			android:onClick="onOkButtonClick"/>
+
+	</LinearLayout>
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:id="@+id/console"
+			android:textColor="#FFFCFC"/>
+
+	</ScrollView>
+
+</LinearLayout>
+
