@@ -9,6 +9,7 @@ public class Main implements InputHandler
 	public static int dimesionStones;
 	public static int KIimortalis;
 	public static int KIgortenzya;
+	public static int KIpyletopia;
 	public static int xarakstrong;
 	public static int xarakenergy;
 	public static int runestoned;
@@ -56,6 +57,7 @@ public class Main implements InputHandler
 		xaraksoul = 200;
 		xarakenergy = 200;
 		xarakanima = 200;
+		KIpyletopia = 0;
 		
 		console.println("Привет! Начните игру с строительства дома. Пишите команду buildHouse");
 		console.println("___________");
@@ -82,6 +84,25 @@ public class Main implements InputHandler
 					console.println("Вам нехватает энергии, поспите: sleep");
 				}
 		 		break;
+			case "make pyletopia":
+				if (energy >= 5) {
+					if (dimesionStones > 0){
+						energy -= 5;
+						console.println("----------------");
+						console.println("Энергия: " + energy + ".");
+						dimesionStones--;
+						KIpyletopia++;
+						console.println("----------------");
+						console.println("Вы сделали камень измерения Пылетопии");
+					} else if (dimesionStones <= 0){
+						console.println("Вам недостаточно пустых камней измерения, сделайте их, команда: create");
+					}
+				} else {
+					console.println("----------------");
+					console.println("Вам недостаточно энергии! Требуется 5, а у вас: " + energy + ".");
+				}
+
+				break;
 			case "make immortalis":
 				if (energy >= 5) {
 					if (dimesionStones > 0){
@@ -157,11 +178,49 @@ public class Main implements InputHandler
 					console.println("Вам недостаточно энергии!Нужно 30 ,у вас: " + energy + ".");
 				}
 				break;
+			case "activate Pyletopia":
+				if (activatedportals == 0) {
+					if (energy >= 1) {
+						if (deactivatedportals > 0) {
+							if (KIpyletopia > 0) {
+								energy -= 1;
+								console.println("----------------");
+								console.println("Энергия: " + energy + ".");
+								KIpyletopia--;
+								--deactivatedportals;
+								activatedportals++;
+								console.println("Вы успешно активировали портал в Пылетопию!");
+							} else {
+								console.println("Вам недастаточно Камней измерения Пылетопии,чтобы сделать make pyletopia");
+							}
+						} else {
+							console.println("У вас нету построеного портала в доме! Постройте его Build Portal!");
+						}
+					} else {
+						console.println("Вам недостаточно энергии!Нужно 1 ,у вас: " + energy + ".");
+					}
+				} else if ( deactivatedportals > activatedportals) {
+					if (energy >= 1) {
+						if (KIpyletopia > 0) {
+							energy -= 1;
+							console.println("----------------");
+							console.println("Энергия: " + energy + ".");
+							KIimortalis--;
+							activatedportals++;
+							console.println("Вы успешно активировали портал в Пылетопию!");
+						} else {
+							console.println("Вам недастаточно Камней измерения Пылетопии,чтобы сделать make pyletopia");
+						}
+
+					} else {
+						console.println("Вам недостаточно энергии!Нужно 1 ,у вас: " + energy + ".");
+					}
+				}  else if (deactivatedportals == 0) {
+					console.println("У вас нету свободных порталов!Постройте его!Команда Build Portal");
+				}
+
+				break;
 			case "activate Immortalis":
-				//
-				//
-				//
-				// тут какието баги пж исправь их я пишу команду и ничего не происходит,опять наверное скобки неправильно расставил!
 				if (activatedportals == 0) {
 					if (energy >= 1) {
 						if (deactivatedportals > 0) {

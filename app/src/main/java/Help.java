@@ -29,6 +29,13 @@ public class Help
 		Main.console.println("9. activate Immortalis - Команда для активации портала в Имморталис(Требования:Камень измерения Имморталиса,Пустой неактивированный портал)");
 		Main.console.println("_____________");
 		Main.console.println("10. activate Gortenzya - Команда для активации портала в Гарденсию (Требования: Камень измерения Гардензия,Неактивированный портал)");
+		Main.console.println("_____________");
+		Main.console.println("11. ce - Значение Энергии устанавливаеться на 0.");
+		Main.console.println("_____________");
+		Main.console.println("12. stats- Выводит ваш инвентарь");
+		Main.console.println("_____________");
+		Main.console.println("13. kill - Убийтсво мобов");
+		Main.console.println("_____________");
 		
 	}
 }
