@@ -36,6 +36,8 @@ public class Help
 		Main.console.println("_____________");
 		Main.console.println("13. kill - Убийтсво мобов");
 		Main.console.println("_____________");
+		Main.console.println("14. dstats - Показывает Дополнительную статистику мира");
+		Main.console.println("_____________");
 		
 	}
 }

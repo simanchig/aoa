@@ -66,6 +66,8 @@ public class Main implements InputHandler
 		console.println("Пустая версия возможностей пока что мало(Ждите новые обновы скоро будет круто");
 		console.println("___________");
 		console.println("Пройдите обучение,команда: help");
+		console.println("__________");
+		console.println("Помошь по сюжету -> hos");
 	}
 	
 	@Override
@@ -84,7 +86,7 @@ public class Main implements InputHandler
 					console.println("Вам нехватает энергии, поспите: sleep");
 				}
 		 		break;
-			case "make pyletopia":
+			case "make Pyletopia":
 				if (energy >= 5) {
 					if (dimesionStones > 0){
 						energy -= 5;
@@ -103,7 +105,7 @@ public class Main implements InputHandler
 				}
 
 				break;
-			case "make immortalis":
+			case "make Immortalis":
 				if (energy >= 5) {
 					if (dimesionStones > 0){
 						energy -= 5;
@@ -356,6 +358,27 @@ public class Main implements InputHandler
 				break;
 			case "cls":
 				console.clear();
+				break;
+			case "hos":
+				console.println("___________");
+			    console.println("Помощь по Сюжету:");
+				console.println("Чтобы активировать Сюжет -> as");
+				console.println("___________");
+				console.println("Подсказка по Сюжету: Не забывайте про порталы!\nКоманда help для помощи,для подробной информации -> hp");
+				break;
+			case "hp":
+				console.println("___________");
+				console.println("1.Сделайте ПКИ(Пустой камень измерения) -> create");
+				console.println("2. Сделайте камень измерения любого измерения(Подробнее: hki) Пример: make Immortalis");
+				console.println("3. Постройте портал!Требования: 12 рунического камня(чтобы добыть for) Пример: Build Portal");
+				console.println("4. Активируйте портал ,пример: activate Pyletopia");
+				break;
+			case "hki":
+				console.println("___________");
+				console.println("Список измерений(На данный момент их всего:3): ");
+				console.println("1.Пылетопия-Измерение пыли и темноты,индекс - Pyletopia");
+				console.println("2. Имморталис - Измерение,пещера и лабринт! индекс- Immortalis");
+				console.println("3. Гардензия - Измерение цветов и травы ,индекс - Gortenzya");
 				break;
 			default:
 				console.println("Неизвестная команда");
