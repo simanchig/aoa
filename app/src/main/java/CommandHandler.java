@@ -18,7 +18,6 @@ public class CommandHandler {
 			if (Main.energy >= 6) {
 				Main.energy -= 6;
 				Main.xptravel += 40;
-				Main.aoa3sylph -= 0.4;
 				Main.xpoxota += 15;
 				Main.xarakstrong -= 60;
 				Main.console.println("------------------");
@@ -34,7 +33,6 @@ public class CommandHandler {
 			if (Main.energy >= 4) {
 				Main.energy -= 4;
 				Main.xptravel += 50;
-				Main.aoa3sylph -= 0.2;
 				Main.xpoxota += 30;
 				Main.xarakstrong -= 80;
 				Main.console.println("------------------");
@@ -49,7 +47,6 @@ public class CommandHandler {
 			if (Main.energy >= 10) {
 				Main.energy -= 10;
 				Main.xptravel += 30;
-				Main.aoa3sylph -= 0.5;
 				Main.xpoxota += 10;
 				
 				Main.console.println("------------------");
@@ -65,7 +62,6 @@ public class CommandHandler {
 				Main.xarakstrong -= 20;
 				Main.energy -= 8;
 				Main.xptravel += 30;
-				Main.aoa3sylph -= 0.5;
 				Main.xpoxota += 10;
 				Main.console.println("------------------");
 				Main.console.println("Энергия: " + Main.energy + ".");

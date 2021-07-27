@@ -7,14 +7,15 @@ public class Main implements InputHandler
 	public static int deactivatedportals;
 	public static int activatedportals;
 	public static int dimesionStones;
+    
 	public static int KIimortalis;
 	public static int KIgortenzya;
 	public static int KIpyletopia;
 	public static int xarakstrong;
 	public static int xarakenergy;
-	public static int runestoned;
 	public static int xarakanima;
-	public static int aoa3sylph;
+	public static int runestoned;
+	public static int woodenaxe;
 	public static int lvltravel;
 	public static int xaraksoul;
 	public static int xptravel;
@@ -24,10 +25,8 @@ public class Main implements InputHandler
 	public static int xpoxota;
 	public static int energy;
 	public static int homes;
-    public static int trees;
 	public static int wood;
 	
-	public static double aoa3runestone;
 	
 	public static Console console;
 	
@@ -35,29 +34,40 @@ public class Main implements InputHandler
 		console = consoleObj;
 		new Main();
 		
+		
+		//Камни измерений:
 		dimesionStones = 0;
 		KIimortalis = 0;
-		trees = 999999999;
+		KIgortenzya = 0;
+		KIpyletopia = 0;
+		//Ресурсы(дерево и тп):
 		wood = 0;
-		homes = 0;
-		aoa3runestone = 999999999;
 		runestoned = 0;
+		//Доп.Статистика:
+		homes = 0;
 		activatedportals = 0;
 		deactivatedportals = 0;
-		KIgortenzya = 0;
+		// Навыки:
+		  //Анима:
 		lvlanima = 1;
 		xpanima = 0;
-		aoa3sylph = 299999999;
+		  //Охота:
 		lvloxota = 1;
 		xpoxota = 0;
-		energy = 100;
+		  //Путешевтвие:
 		lvltravel = 1;
 		xptravel = 0;
+		//Характеристики:
 		xarakstrong = 200;
 		xaraksoul = 200;
 		xarakenergy = 200;
 		xarakanima = 200;
-		KIpyletopia = 0;
+		//ДРУГОЕ:
+		energy = 150;
+		//Инструменты:
+		woodenaxe = 0;
+		
+		
 		
 		console.println("Привет! Начните игру с строительства дома. Пишите команду buildHouse");
 		console.println("___________");
@@ -143,20 +153,25 @@ public class Main implements InputHandler
 
 			case "дт":
 				if (energy >= 5) {
-					energy -= 5;
-					console.println("----------------");
-					console.println("Энергия: " + energy + ".");
-					xptravel += 10;
-					xpanima += 5;
-					trees--;
-					wood += 5;
-					console.println("Вы срубили дерево! + 5 древесиных толстых палок");
-					console.println("+ 5 опыта Анимы.");
-					console.println("+ 10 опыта путешевствия.");
-					console.println(wood + "едениц дерева.");
-				} else {
+					if (woodenaxe > 0) {
+						energy -= 5;
+						console.println("----------------");
+						console.println("Энергия: " + energy + ".");
+						xptravel += 10;
+						xpanima += 5;
+						wood += 5;
+						console.println("Вы срубили дерево! + 5 древесиных толстых палок");
+						console.println("+ 5 опыта Анимы.");
+						console.println("+ 10 опыта путешевствия.");
+						console.println(wood + "едениц дерева.");
+					} else {
+						console.println("__________");
+						console.println("У вас нет топора!Добудьте его!\n Путешевтвуйте в деревни там будет топор.");
+					}
+					
+			   } else {
 					console.println("Вам недостаточно энергии!Нужно 5 ,у вас: " + energy + ".");
-				}
+			   }
 				break;
 			case "stats":
 				console.println("----------------");
@@ -314,12 +329,11 @@ public class Main implements InputHandler
 				break;
 			case "dstats":
 				console.println("----------------");
-				console.println("Ваши дома: " + homes + ". Ваши активированные порталы: " + activatedportals + ". Ваши неактивированные порталы: " + deactivatedportals +". Деревьев в мире: " + trees + ". Рунического камня : " + aoa3runestone + ". Сильфоф в мире: " + aoa3sylph + ".");
+				console.println("Ваши дома: " + homes + ". Ваши активированные порталы: " + activatedportals + ". Ваши неактивированные порталы: " + deactivatedportals  + ". ");
 	            break;
 			case "for":
 				if (energy >= 5){
 					energy -= 5;
-					aoa3runestone -= 0.5;
 					runestoned += 1;
 					console.println("Энергия: " + energy + ".");
 					console.println("----------------");
@@ -379,6 +393,21 @@ public class Main implements InputHandler
 				console.println("1.Пылетопия-Измерение пыли и темноты,индекс - Pyletopia");
 				console.println("2. Имморталис - Измерение,пещера и лабринт! индекс- Immortalis");
 				console.println("3. Гардензия - Измерение цветов и травы ,индекс - Gortenzya");
+				break;
+			case "pt village":
+				if (energy >= 45) {
+					if (woodenaxe == 0){
+						woodenaxe = 1;
+					} 
+					xptravel += 20;
+					energy -= 45;
+					console.println("__________");
+					console.println("Вы пошли искать деревню, и залутали её");
+					console.println("+ 20 опыта к навыку: Путешевствие");
+					console.println("- 45 Энергии ,у вас теперь: " + energy +".");
+				} else {
+					console.println("Вам недостаточно энергии чтобы начать путешевствие!\n Надо 45 а у вас: " + energy + ".");
+				}
 				break;
 			default:
 				console.println("Неизвестная команда");

@@ -38,6 +38,8 @@ public class Help
 		Main.console.println("_____________");
 		Main.console.println("14. dstats - Показывает Дополнительную статистику мира");
 		Main.console.println("_____________");
+		Main.console.println("15. pt village - Вы путешевтвуете чтобы найти деревню и лутаете её,\nТам 100% будет деревянный топор");
+		Main.console.println("_____________");
 		
 	}
 }

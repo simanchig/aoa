@@ -19,7 +19,6 @@ public class GameSaver {
 		Main.xarakenergy = 200;
 		Main.runestoned = 0;
 		Main.xarakanima = 200;
-		Main.aoa3sylph = 299999999;
 		Main.lvltravel = 1;
 		Main.xaraksoul = 200;
 		Main.xptravel = 0;
@@ -29,9 +28,7 @@ public class GameSaver {
 		Main.xpoxota = 0;
 		Main.energy = 100;
 		Main.homes = 0;
-	    Main.trees = 999999999;
 		Main.wood = 0;
-		Main.aoa3runestone = 999999999;
 		
 		File saveFile = new File(execDir + "save.data");
 		if(saveFile.exists()) saveFile.delete();
@@ -54,7 +51,6 @@ public class GameSaver {
 			dos.writeInt(Main.xarakenergy);
 			dos.writeInt(Main.runestoned);
 			dos.writeInt(Main.xarakanima);
-			dos.writeInt(Main.aoa3sylph);
 			dos.writeInt(Main.lvltravel);
 			dos.writeInt(Main.xaraksoul);
 			dos.writeInt(Main.xptravel);
@@ -64,10 +60,8 @@ public class GameSaver {
 			dos.writeInt(Main.xpoxota);
 			dos.writeInt(Main.energy);
 			dos.writeInt(Main.homes);
-		    dos.writeInt(Main.trees);
 			dos.writeInt(Main.wood);
 			
-			dos.writeDouble(Main.aoa3runestone);
 			
 			dos.flush();
 			
@@ -101,7 +95,6 @@ public class GameSaver {
 			Main.xarakenergy = dis.readInt();
 			Main.runestoned = dis.readInt();
 			Main.xarakanima = dis.readInt();
-			Main.aoa3sylph = dis.readInt();
 			Main.lvltravel = dis.readInt();
 			Main.xaraksoul = dis.readInt();
 			Main.xptravel = dis.readInt();
@@ -111,10 +104,8 @@ public class GameSaver {
 			Main.xpoxota = dis.readInt();
 			Main.energy = dis.readInt();
 			Main.homes = dis.readInt();
-		    Main.trees = dis.readInt();
 			Main.wood = dis.readInt();
 			
-			Main.aoa3runestone = dis.readDouble();
 			
 			fis.close();
 	        dis.close();
