@@ -116,6 +116,8 @@ public class CommandHandler {
 			Main.console.println("Энергия: " + Main.energy + ".");
 			Main.console.println("----------------");
 			Main.console.println("Вы добыли 1 рунический камень!+ 1 рунический камень");
+			Main.console.println("У вас уже: " + Main.runestoned + "Рунического камня.");
+			
 		} else {
 			Main.console.println("Вам недостаточно энергии!Нужно 5 ,у вас: " + Main.energy + ".");
 		}

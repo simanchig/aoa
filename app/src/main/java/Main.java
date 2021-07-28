@@ -71,12 +71,12 @@ public class Main implements InputHandler
 		console.println("Привет! Начните игру с строительства дома. Пишите команду buildHouse");
 		console.println("___________");
 		console.println("ChangeLog:");
-		console.println("Version:1.0");
-		console.println("Пустая версия возможностей пока что мало(Ждите новые обновы скоро будет круто");
+		console.println("Version:БЕТА 1.0.1");
+		console.println("Более наполненная контентом версия!Ждите новые обновы скоро будет СЮЖЕТ.");
 		console.println("___________");
 		console.println("Пройдите обучение,команда: help");
 		console.println("__________");
-		console.println("Помошь по сюжету -> hos");
+		console.println("Помошь по сюжету -> hos(НЕ РАБОТАЕТ");
 	}
 	
 	@Override
