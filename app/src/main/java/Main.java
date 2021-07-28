@@ -7,6 +7,7 @@ public class Main implements InputHandler
 	public static int deactivatedportals;
 	public static int activatedportals;
 	public static int dimesionStones;
+	public static int woodenpickaxe;
 	public static int KIimortalis;
 	public static int KIgortenzya;
 	public static int KIpyletopia;
@@ -24,6 +25,7 @@ public class Main implements InputHandler
 	public static int xpoxota;
 	public static int energy;
 	public static int sticks;
+	public static int pwpaxe;
 	public static int homes;
 	public static int pwaxe;
 	public static int wood;
@@ -70,6 +72,8 @@ public class Main implements InputHandler
 		//Инструменты:
 		woodenaxe = 0;
 		pwaxe = 100;
+		woodenpickaxe = 0;
+		pwpaxe = 100;
 		
 		
 		
@@ -90,6 +94,7 @@ public class Main implements InputHandler
 	{
 		other.checkXp();
 		other.checkpwaxe();
+		other.checkpwpaxe();
 
 		switch(str) {
 			case "create":
@@ -200,6 +205,10 @@ public class Main implements InputHandler
 			case "create waxe":
 				console.clear();
 				CommandHandler.cmdcreatewaxe();
+				break;
+			case "create wpaxe":
+				console.clear();
+				CommandHandler.cmdcreatewpaxe();
 				break;
 			default:
 				console.clear();

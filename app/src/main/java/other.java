@@ -94,4 +94,13 @@ public class other
 			Main.woodenaxe = 0;
 	    }
 	}
+	
+	public static void checkpwpaxe() {
+		if(Main.pwpaxe == 0) {
+			Main.console.clear();
+			Main.console.println("___________");
+			Main.console.println("Ваша кирка развалилась!Найдите или сделайте новый,команда: create wpaxe");
+			Main.woodenpickaxe = 0;
+	    }
+	}
 }

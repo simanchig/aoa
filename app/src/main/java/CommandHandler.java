@@ -111,12 +111,17 @@ public class CommandHandler {
 	
 	public static void cmdfor() {
 		if (Main.energy >= 5){
-			Main.energy -= 5;
-			Main.runestoned += 1;
-			Main.console.println("Энергия: " + Main.energy + ".");
-			Main.console.println("----------------");
-			Main.console.println("Вы добыли 1 рунический камень!+ 1 рунический камень");
-			Main.console.println("У вас уже: " + Main.runestoned + "Рунического камня.");
+			if(Main.woodenpickaxe >= 1) {
+				Main.pwpaxe -= 10;
+				Main.energy -= 5;
+				Main.runestoned += 1;
+				Main.console.println("Энергия: " + Main.energy + ".");
+				Main.console.println("----------------");
+				Main.console.println("Вы добыли 1 рунический камень!+ 1 рунический камень");
+				Main.console.println("У вас уже: " + Main.runestoned + "Рунического камня.");
+			} else {
+				Main.console.println("У вас нету кирки!");
+			}
 			
 		} else {
 			Main.console.println("Вам недостаточно энергии!Нужно 5 ,у вас: " + Main.energy + ".");
@@ -438,6 +443,32 @@ public class CommandHandler {
 				Main.console.println("Вам недостаточно палок!Надо 2 ,у вас: " + Main.sticks + ".");
 				Main.console.println("Чтобы сделать: create Sticks");
 				
+			}
+		} else {
+			Main.console.println("Вам недостаточно энергии!Надо 4 ,а у вас: " + Main.energy + ".");
+		}
+	}
+	
+	public static void cmdcreatewpaxe() {
+		if(Main.energy >= 4) {
+			if(Main.sticks >= 2 && Main.wood >= 3) {
+				Main.woodenpickaxe = 1;
+				Main.pwpaxe = 200;
+			} else if(Main.sticks < 2 && Main.wood >= 3) {
+				Main.console.println("__________");
+				Main.console.println("Вам недостаточно палок!Надо 2 ,у вас: " + Main.sticks + ".");
+				Main.console.println("Чтобы сделать: create Sticks");
+			} else if(Main.sticks >= 2 && Main.wood < 3) {
+				Main.console.println("__________");
+				Main.console.println("Вам недостаточно Древесины!Надо 3 ,у вас: " + Main.wood + ".");
+				Main.console.println("Чтобы добыть: dt");
+			} else if (Main.sticks < 2 && Main.wood <3) {
+				Main.console.println("__________");
+				Main.console.println("Вам недостаточно Древесины!Надо 3 ,у вас: " + Main.wood + ".");
+				Main.console.println("Чтобы добыть: dt");
+				Main.console.println("Вам недостаточно палок!Надо 2 ,у вас: " + Main.sticks + ".");
+				Main.console.println("Чтобы сделать: create Sticks");
+
 			}
 		} else {
 			Main.console.println("Вам недостаточно энергии!Надо 4 ,а у вас: " + Main.energy + ".");
