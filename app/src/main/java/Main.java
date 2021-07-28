@@ -82,7 +82,7 @@ public class Main implements InputHandler
 	@Override
 	public void onInput(String str)
 	{
-		checkXp();
+		other.checkXp();
 
 		switch(str) {
 			case "create":
@@ -174,43 +174,17 @@ public class Main implements InputHandler
 				break;
 			case "hos":
 				console.clear();
-				console.println("___________");
-			    console.println("Помощь по Сюжету:");
-				console.println("Чтобы активировать Сюжет -> as");
-				console.println("___________");
-				console.println("Подсказка по Сюжету: Не забывайте про порталы!\nКоманда help для помощи,для подробной информации -> hp");
-				break;
+				CommandHandler.cmdhos();
+					break;
 			case "hp":
-				console.clear();
-				console.println("___________");
-				console.println("1.Сделайте ПКИ(Пустой камень измерения) -> create");
-				console.println("2. Сделайте камень измерения любого измерения(Подробнее: hki) Пример: make Immortalis");
-				console.println("3. Постройте портал!Требования: 12 рунического камня(чтобы добыть for) Пример: Build Portal");
-				console.println("4. Активируйте портал ,пример: activate Pyletopia");
+				CommandHandler.cmdhp();
 				break;
 			case "hi":
-				console.clear();
-				console.println("___________");
-				console.println("Список измерений(На данный момент их всего:3): ");
-				console.println("1.Пылетопия-Измерение пыли и темноты,индекс - Pyletopia");
-				console.println("2. Имморталис - Измерение,пещера и лабринт! индекс- Immortalis");
-				console.println("3. Гардензия - Измерение цветов и травы ,индекс - Gortenzya");
+				CommandHandler.cmdhi();
 				break;
 			case "pt village":
 				console.clear();
-				if (energy >= 45) {
-					if (woodenaxe == 0){
-						woodenaxe = 1;
-					} 
-					xptravel += 20;
-					energy -= 45;
-					console.println("__________");
-					console.println("Вы пошли искать деревню, и залутали её");
-					console.println("+ 20 опыта к навыку: Путешевствие");
-					console.println("- 45 Энергии ,у вас теперь: " + energy +".");
-				} else {
-					console.println("Вам недостаточно энергии чтобы начать путешевствие!\n Надо 45 а у вас: " + energy + ".");
-				}
+				CommandHandler.cmdptVillage();
 				break;
 			default:
 				console.clear();
@@ -218,90 +192,10 @@ public class Main implements InputHandler
 		}
 	}
 	
-	public static void pki() {
-    	dimesionStones++;
-		
-		if (dimesionStones == 1) {
-			console.println("У вас " + dimesionStones + " пустой камень измерений");
-		} else if(dimesionStones == 2){
-			console.println("У вас " + dimesionStones + " пустых камня измерений");
-		} else if(dimesionStones == 3){
-			console.println("У вас " + dimesionStones + " пустых камня измерений");
-		} else if (dimesionStones == 4){
-			console.println("У вас " + dimesionStones + " пустых камня измерений");
-		} else {
-			console.println("У вас " + dimesionStones + " пустих камней измерений");
-		}
-	}
-	public static void stats() {
-		console.println("__________");
-		console.println("Мощь: " + xarakstrong + ".");
-		console.println("__________");
-		console.println("Энергия: " + xarakenergy + ".");
-		console.println("__________");
-		console.println("Анима: " + xarakanima + ".");
-		console.println("__________");
-		console.println("Душа: " + xaraksoul + ".");
-	}
+	
+	
 
-	public static void checkXp() {
-		if (xpanima == 100) {
-				lvlanima = 2;
-				energy += 10;
-				console.println("----------------");
-				console.println("Уровень Анимы повышен до: " + lvlanima + ".");
-				console.println("Ваша энергия: " + energy + ".");
-			} else if (xpanima == 300) {
-				lvlanima = 3;
-				energy += 10;
-				console.println("----------------");
-				console.println("Уровень Анимы повышен до: " + lvlanima + ".");
-				console.println("Ваша энергия: " + energy + ".");
-			} else if (xpanima == 800) {
-				lvlanima = 4;
-				energy += 15;
-				console.println("----------------");
-				console.println("Уровень Анимы повышен до: " + lvlanima + ".");
-				console.println("Ваша энергия: " + energy + ".");
-			} else if (xpanima == 1200) {
-				lvlanima = 5;
-				energy += 20;
-				console.println("----------------");
-				console.println("Уровень Анимы повышен до: " + lvlanima + ".");
-				console.println("Ваша энергия: " + energy + ".");
-			} 
-            if (xpoxota == 150) {
-				lvloxota = 2;
-				energy += 10;
-				console.println("----------------");
-				console.println("Ваш уровень навыка \"Охота\" повышен до уровня: " + lvloxota + ".");
-				console.println("Энергия: " + energy + ".");
-			} else if (xpoxota == 500) {
-				lvloxota = 3;
-				energy += 20;
-				console.println("----------------");
-				console.println("Ваш уровень навыка \"Охота\" повышен до уровня: " + lvloxota + ".");
-				console.println("Энергия: " + energy + ".");
-			} else if (xpoxota == 1000) {
-				lvloxota = 4;
-				energy += 20;
-				console.println("----------------");
-				console.println("Ваш уровень навыка \"Охота\" повышен до уровня: " + lvloxota + ".");
-			  	console.println("Энергия: " + energy + ".");
-		    } if (xptravel == 100) {
-				lvltravel = 2;
-				energy += 10;
-				console.println("----------------");
-				console.println("Ваш уровень Путешевствия повышен до: " + lvltravel + ".");
-				console.println("Энергия: " + energy + ".");
-			  } else if (xptravel == 300) {
-				lvltravel = 3;
-				energy += 10;
-				console.println("----------------");
-				console.println("Ваш уровень Путешевствия повышен до: " + lvltravel + ".");
-				console.println("Энергия: " + energy + ".");
-			}
-	}
+	
 	
 	public Main() {
 		console.setInputHandler(this);

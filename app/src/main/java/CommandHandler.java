@@ -10,7 +10,7 @@ public class CommandHandler {
 	    Main.console.println("Путешевствие - " + Main.lvltravel + " уровень. Опыт: " + Main.xptravel + "xp.");
 		Main.console.println("__________");
 		Main.console.println("Другое: ");
-		Main.stats();
+		other.stats();
 	}
 	
 	public static void cmdKill() {
@@ -125,7 +125,7 @@ public class CommandHandler {
 	
 	public static void cmdcreate() {
 		if (Main.energy >= 2) {
-			Main.pki();
+			other.pki();
 			Main.energy -= 2;
 			Main.console.println("----------------");
 			Main.console.println("Энергия: " + Main.energy + ".");
@@ -371,5 +371,48 @@ public class CommandHandler {
 	public static void cmdce() {
 		Main.energy = 0;
 		Main.console.println("Успешно!");
+	}
+	
+	public static void cmdhos() {
+		Main.console.println("___________");
+		Main.console.println("Помощь по Сюжету:");
+		Main.console.println("Чтобы активировать Сюжет -> as");
+		Main.console.println("___________");
+		Main.console.println("Подсказка по Сюжету: Не забывайте про порталы!\nКоманда help для помощи,для подробной информации -> hp");
+		
+	}
+	
+	public static void cmdhp() {
+		Main.console.clear();
+		Main.console.println("___________");
+		Main.console.println("1.Сделайте ПКИ(Пустой камень измерения) -> create");
+		Main.console.println("2. Сделайте камень измерения любого измерения(Подробнее: hki) Пример: make Immortalis");
+		Main.console.println("3. Постройте портал!Требования: 12 рунического камня(чтобы добыть for) Пример: Build Portal");
+		Main.console.println("4. Активируйте портал ,пример: activate Pyletopia");
+	}
+	
+	public static void cmdhi() {
+		Main.console.clear();
+		Main.console.println("___________");
+		Main.console.println("Список измерений(На данный момент их всего:3): ");
+		Main.console.println("1.Пылетопия-Измерение пыли и темноты,индекс - Pyletopia");
+		Main.console.println("2. Имморталис - Измерение,пещера и лабринт! индекс- Immortalis");
+		Main.console.println("3. Гардензия - Измерение цветов и травы ,индекс - Gortenzya");
+	}
+	
+	public static void cmdptVillage() {
+		if (Main.energy >= 45) {
+			if (Main.woodenaxe == 0){
+				Main.woodenaxe = 1;
+			} 
+			Main.xptravel += 20;
+			Main.energy -= 45;
+			Main.console.println("__________");
+			Main.console.println("Вы пошли искать деревню, и залутали её");
+			Main.console.println("+ 20 опыта к навыку: Путешевствие");
+			Main.console.println("- 45 Энергии ,у вас теперь: " + Main.energy +".");
+		} else {
+			Main.console.println("Вам недостаточно энергии чтобы начать путешевствие!\n Надо 45 а у вас: " + Main.energy + ".");
+		}
 	}
 }
