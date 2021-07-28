@@ -193,6 +193,7 @@ public class CommandHandler {
 	public static void cmddt() {
 		if (Main.energy >= 5) {
 			if (Main.woodenaxe > 0) {
+				Main.pwaxe -= 2;
 				Main.energy -= 5;
 				Main.console.println("----------------");
 				Main.console.println("Энергия: " + Main.energy + ".");
@@ -203,6 +204,7 @@ public class CommandHandler {
 				Main.console.println("+ 5 опыта Анимы.");
 				Main.console.println("+ 10 опыта путешевствия.");
 				Main.console.println(Main.wood + "едениц дерева.");
+				Main.console.println("Прочность вашего топора: " + Main.pwaxe + ".");
 			} else {
 				Main.console.println("__________");
 				Main.console.println("У вас нет топора!Добудьте его!\n Путешевтвуйте в деревни там будет топор.");
@@ -415,4 +417,48 @@ public class CommandHandler {
 			Main.console.println("Вам недостаточно энергии чтобы начать путешевствие!\n Надо 45 а у вас: " + Main.energy + ".");
 		}
 	}
+	
+	public static void cmdcreatewaxe() {
+		if(Main.energy >= 4) {
+			if(Main.sticks >= 2 && Main.wood >= 3) {
+				Main.woodenaxe = 1;
+				Main.pwaxe = 200;
+			} else if(Main.sticks < 2 && Main.wood >= 3) {
+				Main.console.println("__________");
+				Main.console.println("Вам недостаточно палок!Надо 2 ,у вас: " + Main.sticks + ".");
+				Main.console.println("Чтобы сделать: create Sticks");
+			} else if(Main.sticks >= 2 && Main.wood < 3) {
+				Main.console.println("__________");
+				Main.console.println("Вам недостаточно Древесины!Надо 3 ,у вас: " + Main.wood + ".");
+				Main.console.println("Чтобы добыть: dt");
+			} else if (Main.sticks < 2 && Main.wood <3) {
+				Main.console.println("__________");
+				Main.console.println("Вам недостаточно Древесины!Надо 3 ,у вас: " + Main.wood + ".");
+				Main.console.println("Чтобы добыть: dt");
+				Main.console.println("Вам недостаточно палок!Надо 2 ,у вас: " + Main.sticks + ".");
+				Main.console.println("Чтобы сделать: create Sticks");
+				
+			}
+		} else {
+			Main.console.println("Вам недостаточно энергии!Надо 4 ,а у вас: " + Main.energy + ".");
+		}
+	}
+	
+	public static  void cmdcreatesticks() {
+		if(Main.energy >= 2) {
+			if(Main.wood >= 2) {
+				Main.sticks += 4;
+				Main.wood -= 2;
+				Main.energy -= 2;
+				Main.console.println("__________");
+				Main.console.println("Вы создали 4 палки!");
+				Main.console.println("- 2 Древесины, у вас теперь: " + Main.wood + ".");
+				Main.console.println(" - 2 Энергии, у вас теперь: " + Main.energy + ".");
+			} else {
+				Main.console.println("Вам недостаточно древесины!Надо 2 ,у вас: " + Main.wood + ".");
+			}
+		} else {
+			Main.console.println("Вам недостаточно энергии!Надо 2 ,у вас: " + Main.energy + ".");
+		}
+    }
 }

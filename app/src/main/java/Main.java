@@ -23,8 +23,11 @@ public class Main implements InputHandler
 	public static int xpanima;
 	public static int xpoxota;
 	public static int energy;
+	public static int sticks;
 	public static int homes;
+	public static int pwaxe;
 	public static int wood;
+	
 	
 	
 	public static Console console;
@@ -42,6 +45,7 @@ public class Main implements InputHandler
 		//Ресурсы(дерево и тп):
 		wood = 0;
 		runestoned = 0;
+		sticks = 0;
 		//Доп.Статистика:
 		homes = 0;
 		activatedportals = 0;
@@ -65,6 +69,8 @@ public class Main implements InputHandler
 		energy = 150;
 		//Инструменты:
 		woodenaxe = 0;
+		pwaxe = 100;
+		
 		
 		
 		
@@ -83,6 +89,7 @@ public class Main implements InputHandler
 	public void onInput(String str)
 	{
 		other.checkXp();
+		other.checkpwaxe();
 
 		switch(str) {
 			case "create":
@@ -185,6 +192,14 @@ public class Main implements InputHandler
 			case "pt village":
 				console.clear();
 				CommandHandler.cmdptVillage();
+				break;
+			case "create Sticks":
+				console.clear();
+				CommandHandler.cmdcreatesticks();
+				break;
+			case "create waxe":
+				console.clear();
+				CommandHandler.cmdcreatewaxe();
 				break;
 			default:
 				console.clear();

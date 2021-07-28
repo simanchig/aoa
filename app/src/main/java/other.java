@@ -85,4 +85,13 @@ public class other
 			Main.console.println("Энергия: " + Main.energy + ".");
 		}
 	}
+	
+	public static void checkpwaxe() {
+		if(Main.pwaxe == 0) {
+			Main.console.clear();
+			Main.console.println("___________");
+			Main.console.println("Ваш топор развалился!Найдите или сделайте новый,команда: create waxe");
+			Main.woodenaxe = 0;
+	    }
+	}
 }
