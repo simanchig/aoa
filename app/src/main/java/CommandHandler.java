@@ -426,8 +426,10 @@ public class CommandHandler {
 	public static void cmdcreatewaxe() {
 		if(Main.energy >= 4) {
 			if(Main.sticks >= 2 && Main.wood >= 3) {
+				Main.energy -= 4;
 				Main.woodenaxe = 1;
 				Main.pwaxe = 200;
+				Main.console.println("Вы сделали Деревянный топор!Прочность: " + Main.pwaxe +"/200");
 			} else if(Main.sticks < 2 && Main.wood >= 3) {
 				Main.console.println("__________");
 				Main.console.println("Вам недостаточно палок!Надо 2 ,у вас: " + Main.sticks + ".");
@@ -452,8 +454,10 @@ public class CommandHandler {
 	public static void cmdcreatewpaxe() {
 		if(Main.energy >= 4) {
 			if(Main.sticks >= 2 && Main.wood >= 3) {
+				Main.energy -= 4;
 				Main.woodenpickaxe = 1;
 				Main.pwpaxe = 200;
+				Main.console.println("Вы сделали деревянную кирку!Прочность: " + Main.pwpaxe +"/200");
 			} else if(Main.sticks < 2 && Main.wood >= 3) {
 				Main.console.println("__________");
 				Main.console.println("Вам недостаточно палок!Надо 2 ,у вас: " + Main.sticks + ".");

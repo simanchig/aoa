@@ -210,6 +210,9 @@ public class Main implements InputHandler
 				console.clear();
 				CommandHandler.cmdcreatewpaxe();
 				break;
+			case "cp":
+				pwaxe = 0;
+				break;
 			default:
 				console.clear();
 				console.println("Неизвестная команда");
