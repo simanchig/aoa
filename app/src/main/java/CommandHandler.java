@@ -103,4 +103,178 @@ public class CommandHandler {
 			Main.console.println("Вам недостаточно энергии!Нужно 10 ,у вас: " + Main.energy + ".");
 		}
 	}
+	
+	public static void cmddstats() {
+		Main.console.println("----------------");
+		Main.console.println("Ваши дома: " + Main.homes + ". Ваши активированные порталы: " + Main.activatedportals + ". Ваши неактивированные порталы: " + Main.deactivatedportals  + ". ");
+	}
+	
+	public static void cmdfor() {
+		if (Main.energy >= 5){
+			Main.energy -= 5;
+			Main.runestoned += 1;
+			Main.console.println("Энергия: " + Main.energy + ".");
+			Main.console.println("----------------");
+			Main.console.println("Вы добыли 1 рунический камень!+ 1 рунический камень");
+		} else {
+			Main.console.println("Вам недостаточно энергии!Нужно 5 ,у вас: " + Main.energy + ".");
+		}
+	}
+	
+	public static void cmdcreate() {
+		if (Main.energy >= 2) {
+			Main.pki();
+			Main.energy -= 2;
+			Main.console.println("----------------");
+			Main.console.println("Энергия: " + Main.energy + ".");
+		} else {
+			Main.console.println("Вам нехватает энергии, Нужно 2 а у вас: " + Main.energy +"поспите: sleep");
+		}
+	}
+	
+	public static void cmdmakepyletopia() {
+		if (Main.energy >= 5) {
+			if (Main.dimesionStones > 0){
+				Main.energy -= 5;
+				Main.console.println("----------------");
+				Main.console.println("Энергия: " + Main.energy + ".");
+				Main.dimesionStones--;
+				Main.KIpyletopia++;
+				Main.console.println("----------------");
+				Main.console.println("Вы сделали камень измерения Пылетопии");
+			} else if (Main.dimesionStones <= 0){
+				Main.console.println("Вам недостаточно пустых камней измерения, сделайте их, команда: create");
+			}
+		} else {
+			Main.console.println("----------------");
+			Main.console.println("Вам недостаточно энергии! Требуется 5, а у вас: " + Main.energy + ".");
+		}
+		
+	}
+	
+	public static void cmdmakeimmortalis() {
+		if (Main.energy >= 5) {
+			if (Main.dimesionStones > 0){
+				Main.energy -= 5;
+				Main.console.println("----------------");
+				Main.console.println("Энергия: " + Main.energy + ".");
+				Main.dimesionStones--;
+				Main.KIimortalis++;
+				Main.console.println("----------------");
+				Main.console.println("Вы сделали Камень измерения Имморталиса");
+			} else if (Main.dimesionStones <= 0){
+				Main.console.println("Вам недостаточно пустых камней измерения, сделайте их, команда: create");
+			}
+		} else {
+			Main.console.println("----------------");
+			Main.console.println("Вам недостаточно энергии! Требуется 5, а у вас: " + Main.energy + ".");
+		}
+	}
+	
+	public static void cmdmakeGortnezya() {
+		if(Main.energy >= 5) {
+			if (Main.dimesionStones > 0) {
+				Main.energy -= 5;
+				Main.console.println("----------------");
+				Main.console.println("Энергия: " + Main.energy + ".");
+				Main.dimesionStones--;
+				Main.KIgortenzya++;
+				Main.console.println("Вы сделали Камень измерения Гарденсии,чтобы активировать activate Gortenzya");
+			} else if (Main.dimesionStones <= 0){
+				Main.console.println("Вам недостаточно пустых камней измерения,Сделайте их,команда create");
+			}
+		} else {
+			Main.console.println("Вам недостаточно энергии!Требуеться 5 а у вас: " + Main.energy + ".");
+		}
+	}
+	
+	public static void cmddt() {
+		if (Main.energy >= 5) {
+			if (Main.woodenaxe > 0) {
+				Main.energy -= 5;
+				Main.console.println("----------------");
+				Main.console.println("Энергия: " + Main.energy + ".");
+				Main.xptravel += 10;
+				Main.xpanima += 5;
+				Main.wood += 5;
+				Main.console.println("Вы срубили дерево! + 5 древесиных толстых палок");
+				Main.console.println("+ 5 опыта Анимы.");
+				Main.console.println("+ 10 опыта путешевствия.");
+				Main.console.println(Main.wood + "едениц дерева.");
+			} else {
+				Main.console.println("__________");
+				Main.console.println("У вас нет топора!Добудьте его!\n Путешевтвуйте в деревни там будет топор.");
+			}
+
+		} else {
+			Main.console.println("Вам недостаточно энергии!Нужно 5 ,у вас: " + Main.energy + ".");
+		}
+	}
+	
+	public static void cmdbuildHouse() {
+		if (Main.energy >= 30) {
+			if (Main.wood >=64){
+				Main.energy -= 30;
+				Main.console.println("----------------");
+				Main.console.println("Энергия: " + Main.energy + ".");
+				Main.xptravel += 5;
+				Main.wood -= 64;
+				Main.homes++;
+				Main.console.println("У вас теперь есть маленькая халупа");
+				Main.console.println("+ 5 опыта Путешевствия.");
+			} else if (Main.wood <=0){
+				Main.console.println("Добудьте 64 едениц древесины! Вам не хватает! дт");
+			}
+		}else {
+			Main.console.println("Вам недостаточно энергии!Нужно 30 ,у вас: " + Main.energy + ".");
+		}
+	}
+	
+	public static void cmdstats() {
+		Main.console.println("----------------");
+		Main.console.println("Пустых камней измерения: " + Main.dimesionStones + ". Камни Имморталиса: " + Main.KIimortalis + ". Древесины в инвентаре: " + Main.wood + ". Рунического камня: " + Main.runestoned + ". Камней измерения Гортензия: " + Main.KIgortenzya + ".");
+		
+	}
+	
+	public static void cmdactivatePYLETOPIA() {
+		if (Main.activatedportals == 0) {
+			if (Main.energy >= 1) {
+				if (Main.deactivatedportals > 0) {
+					if (Main.KIpyletopia > 0) {
+						Main.energy -= 1;
+						Main.console.println("----------------");
+						Main.console.println("Энергия: " + Main.energy + ".");
+						Main.KIpyletopia--;
+						--Main.deactivatedportals;
+						Main.activatedportals++;
+						Main.console.println("Вы успешно активировали портал в Пылетопию!");
+					} else {
+						Main.console.println("Вам недастаточно Камней измерения Пылетопии,чтобы сделать make pyletopia");
+					}
+				} else {
+					Main.console.println("У вас нету построеного портала в доме! Постройте его Build Portal!");
+				}
+			} else {
+				Main.console.println("Вам недостаточно энергии!Нужно 1 ,у вас: " + Main.energy + ".");
+			}
+		} else if ( Main.deactivatedportals > Main.activatedportals) {
+			if (Main.energy >= 1) {
+				if (Main.KIpyletopia > 0) {
+					Main.energy -= 1;
+					Main.console.println("----------------");
+					Main.console.println("Энергия: " + Main.energy + ".");
+					Main.KIimortalis--;
+					Main.activatedportals++;
+					Main.console.println("Вы успешно активировали портал в Пылетопию!");
+				} else {
+					Main.console.println("Вам недастаточно Камней измерения Пылетопии,чтобы сделать make pyletopia");
+				}
+
+			} else {
+				Main.console.println("Вам недостаточно энергии!Нужно 1 ,у вас: " + Main.energy + ".");
+			}
+		}  else if (Main.deactivatedportals == 0) {
+			Main.console.println("У вас нету свободных порталов!Постройте его!Команда Build Portal");
+		}
+	}
 }

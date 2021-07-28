@@ -40,6 +40,13 @@ public class Help
 		Main.console.println("_____________");
 		Main.console.println("15. pt village - Вы путешевтвуете чтобы найти деревню и лутаете её,\nТам 100% будет деревянный топор");
 		Main.console.println("_____________");
+		Main.console.println("16. as - Активация Сюжета(ПОКА НЕДОСТУПНО!)");
+		Main.console.println("_____________");
+		Main.console.println("17. hos - Вызывает помощь по Сюжету");
+		Main.console.println("_____________");
+		Main.console.println("18. hp - Вызывает помощь по Порталам");
+		Main.console.println("_____________");
+		Main.console.println("19. hi - Вызывает список всех измерний");
 		
 	}
 }
