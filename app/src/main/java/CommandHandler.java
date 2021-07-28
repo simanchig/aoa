@@ -277,4 +277,97 @@ public class CommandHandler {
 			Main.console.println("У вас нету свободных порталов!Постройте его!Команда Build Portal");
 		}
 	}
+	
+	public static void cmdactivateimmortalis() {
+		if (Main.activatedportals == 0) {
+			if (Main.energy >= 1) {
+				if (Main.deactivatedportals > 0) {
+					if (Main.KIimortalis > 0) {
+						Main.energy -= 1;
+						Main.console.println("----------------");
+						Main.console.println("Энергия: " + Main.energy + ".");
+						Main.KIimortalis--;
+						--Main.deactivatedportals;
+						Main.activatedportals++;
+						Main.console.println("Вы успешно активировали портал в Имморталис!");
+					} else {
+						Main.console.println("Вам недастаточно Камней измерения Имморталиса,чтобы сделать make");
+					}
+				} else {
+					Main.console.println("У вас нету построеного портала в доме! Постройте его Build Portal!");
+				}
+			} else {
+				Main.console.println("Вам недостаточно энергии!Нужно 1 ,у вас: " + Main.energy + ".");
+			}
+		} else if ( Main.deactivatedportals > Main.activatedportals) {
+			if (Main.energy >= 1) {
+				if (Main.KIimortalis > 0) {
+					Main.energy -= 1;
+					Main.console.println("----------------");
+					Main.console.println("Энергия: " + Main.energy + ".");
+					Main.KIimortalis--;
+					Main.activatedportals++;
+					Main.console.println("Вы успешно активировали портал в Имморталис!");
+				} else {
+					Main.console.println("Вам недастаточно Камней измерения Имморталиса,чтобы сделать make");
+				}
+
+			} else {
+				Main.console.println("Вам недостаточно энергии!Нужно 1 ,у вас: " + Main.energy + ".");
+			}
+		}  else if (Main.deactivatedportals == 0) {
+			Main.console.println("У вас нету свободных порталов!Постройте его!Команда Build Portal");
+		}
+	}
+	
+	public static void cmdactivateGortenzya() {
+		if (Main.activatedportals == 0) {
+			if (Main.energy >= 1) {
+				if (Main.deactivatedportals > 0) {
+					if (Main.KIgortenzya > 0) {
+						Main.energy -= 1;
+						Main.KIgortenzya--;
+						Main.deactivatedportals--;
+						Main.activatedportals++;
+						Main.console.println("Энергия: " + Main.energy + ".");
+						Main.console.println("----------------");
+						Main.console.println("Вы успешно активировали портал в Гардензию!");
+					} else {
+						Main.console.println("Вам недастаточно Камней измерения Гардензия,чтобы сделать make");
+					}
+				} else {
+					Main.console.println("У вас нету построеного портала в доме!Постройте его Build Portal!");
+				}
+			} else {
+				Main.console.println("Вам недостаточно энергии!Нужно 1 ,у вас: " + Main.energy + ".");
+			}
+		} else if (Main.deactivatedportals > Main.activatedportals) {
+			if (Main.energy >= 1) {
+				if (Main.deactivatedportals > 0) {
+					if (Main.KIgortenzya > 0) {
+						Main.energy -= 1;
+						Main.KIgortenzya--;
+						Main.activatedportals++;
+						Main.console.println("Энергия: " + Main.energy + ".");
+						Main.console.println("----------------");
+						Main.console.println("Вы успешно активировали портал в Гардензию!");
+					} else {
+						Main.console.println("Вам недастаточно Камней измерения Гардензия,чтобы сделать make");
+					}
+				} else {
+					Main.console.println("У вас нету построеного портала в доме!Постройте его Build Portal!");
+				}
+			} else {
+				Main.console.println("Вам недостаточно энергии!Нужно 1 ,у вас: " + Main.energy + ".");
+			}
+		} else if (Main.deactivatedportals < Main.activatedportals) {
+			Main.console.println("У вас нету свободного портала!Постройте его с помощью команды: Build Portal");
+		}
+		
+	}
+	
+	public static void cmdce() {
+		Main.energy = 0;
+		Main.console.println("Успешно!");
+	}
 }

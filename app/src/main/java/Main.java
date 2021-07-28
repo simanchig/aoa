@@ -7,7 +7,6 @@ public class Main implements InputHandler
 	public static int deactivatedportals;
 	public static int activatedportals;
 	public static int dimesionStones;
-    
 	public static int KIimortalis;
 	public static int KIgortenzya;
 	public static int KIpyletopia;
@@ -87,157 +86,94 @@ public class Main implements InputHandler
 
 		switch(str) {
 			case "create":
+				console.clear();
 				CommandHandler.cmdcreate();
 		 		break;
 			case "make Pyletopia":
+				console.clear();
 				CommandHandler.cmdmakepyletopia();
 					break;
 			case "make Immortalis":
+				console.clear();
 				CommandHandler.cmdmakeimmortalis();
 				break;
 			case "make Gortenzya":
+				console.clear();
 				CommandHandler.cmdmakeGortnezya();
 				break;
 			case "dt":
+				console.clear();
 				CommandHandler.cmddt();
 				break;
 			case "stats":
+				console.clear();
 				CommandHandler.cmdstats();
 				break;
 			case "buildHouse":
+				console.clear();
 				CommandHandler.cmdbuildHouse();
 				break;
 			case "activate Pyletopia":
+				console.clear();
 				CommandHandler.cmdactivatePYLETOPIA();
 				break;
 			case "activate Immortalis":
-				if (activatedportals == 0) {
-					if (energy >= 1) {
-						if (deactivatedportals > 0) {
-							if (KIimortalis > 0) {
-								energy -= 1;
-								console.println("----------------");
-								console.println("Энергия: " + energy + ".");
-								KIimortalis--;
-								--deactivatedportals;
-								activatedportals++;
-								console.println("Вы успешно активировали портал в Имморталис!");
-							} else {
-								console.println("Вам недастаточно Камней измерения Имморталиса,чтобы сделать make");
-							}
-						} else {
-							console.println("У вас нету построеного портала в доме! Постройте его Build Portal!");
-						}
-					} else {
-						console.println("Вам недостаточно энергии!Нужно 1 ,у вас: " + energy + ".");
-					}
-				} else if ( deactivatedportals > activatedportals) {
-					if (energy >= 1) {
-						if (KIimortalis > 0) {
-							energy -= 1;
-							console.println("----------------");
-							console.println("Энергия: " + energy + ".");
-							KIimortalis--;
-							activatedportals++;
-							console.println("Вы успешно активировали портал в Имморталис!");
-						} else {
-							console.println("Вам недастаточно Камней измерения Имморталиса,чтобы сделать make");
-						}
-
-					} else {
-						console.println("Вам недостаточно энергии!Нужно 1 ,у вас: " + energy + ".");
-					}
-				}  else if (deactivatedportals == 0) {
-					console.println("У вас нету свободных порталов!Постройте его!Команда Build Portal");
-				}
-
+				console.clear();
+				CommandHandler.cmdactivateimmortalis();
 				break;
 			case "activate Gortenzya":
-				if (activatedportals == 0) {
-					if (energy >= 1) {
-						if (deactivatedportals > 0) {
-							if (KIgortenzya > 0) {
-								energy -= 1;
-
-								KIgortenzya--;
-								deactivatedportals--;
-								activatedportals++;
-								console.println("Энергия: " + energy + ".");
-								console.println("----------------");
-								console.println("Вы успешно активировали портал в Гардензию!");
-							} else {
-								console.println("Вам недастаточно Камней измерения Гардензия,чтобы сделать make");
-							}
-						} else {
-							console.println("У вас нету построеного портала в доме!Постройте его Build Portal!");
-						}
-					} else {
-						console.println("Вам недостаточно энергии!Нужно 1 ,у вас: " + energy + ".");
-					}
-				} else if (deactivatedportals > activatedportals) {
-					if (energy >= 1) {
-						if (deactivatedportals > 0) {
-							if (KIgortenzya > 0) {
-								energy -= 1;
-
-								KIgortenzya--;
-								activatedportals++;
-								console.println("Энергия: " + energy + ".");
-								console.println("----------------");
-								console.println("Вы успешно активировали портал в Гардензию!");
-							} else {
-								console.println("Вам недастаточно Камней измерения Гардензия,чтобы сделать make");
-							}
-						} else {
-							console.println("У вас нету построеного портала в доме!Постройте его Build Portal!");
-						}
-					} else {
-						console.println("Вам недостаточно энергии!Нужно 1 ,у вас: " + energy + ".");
-					}
-				} else if (deactivatedportals < activatedportals) {
-					console.println("У вас нету свободного портала!Постройте его с помощью команды: Build Portal");
-				}
-
-
+				console.clear();
+				CommandHandler.cmdactivateGortenzya();
 				break;
 			case "dstats":
+				console.clear();
 				CommandHandler.cmddstats();
 	            break;
 			case "for":
+				console.clear();
 				CommandHandler.cmdfor();
 				break;
 			case "buildPortal":
+				console.clear();
 				CommandHandler.cmdBuildPortal();						
 				break;
 			case "skills":
+				console.clear();
 				CommandHandler.cmdSkills();
 				break;
 			case "kill":
+				console.clear();
 				CommandHandler.cmdKill();
 				break;
 			case "sleep":
+				console.clear();
 				CommandHandler.cmdSleep();
 				break;
 			case "ce":
-				energy = 0;
-				console.println("Успешно!");
+				console.clear();
+				CommandHandler.cmdce();
 				break;
 			case "save":
+				console.clear();
 				GameSaver.save();
 				break;
 			case "load":
+				console.clear();
 				GameSaver.load();
 				break;
 			case "reset":
+				console.clear();
 				GameSaver.reset();
 				break;
 			case "help":
+				console.clear();
 				Help.help();
 				break;
 			case "cls":
 				console.clear();
 				break;
 			case "hos":
+				console.clear();
 				console.println("___________");
 			    console.println("Помощь по Сюжету:");
 				console.println("Чтобы активировать Сюжет -> as");
@@ -245,6 +181,7 @@ public class Main implements InputHandler
 				console.println("Подсказка по Сюжету: Не забывайте про порталы!\nКоманда help для помощи,для подробной информации -> hp");
 				break;
 			case "hp":
+				console.clear();
 				console.println("___________");
 				console.println("1.Сделайте ПКИ(Пустой камень измерения) -> create");
 				console.println("2. Сделайте камень измерения любого измерения(Подробнее: hki) Пример: make Immortalis");
@@ -252,6 +189,7 @@ public class Main implements InputHandler
 				console.println("4. Активируйте портал ,пример: activate Pyletopia");
 				break;
 			case "hi":
+				console.clear();
 				console.println("___________");
 				console.println("Список измерений(На данный момент их всего:3): ");
 				console.println("1.Пылетопия-Измерение пыли и темноты,индекс - Pyletopia");
@@ -259,6 +197,7 @@ public class Main implements InputHandler
 				console.println("3. Гардензия - Измерение цветов и травы ,индекс - Gortenzya");
 				break;
 			case "pt village":
+				console.clear();
 				if (energy >= 45) {
 					if (woodenaxe == 0){
 						woodenaxe = 1;
@@ -274,6 +213,7 @@ public class Main implements InputHandler
 				}
 				break;
 			default:
+				console.clear();
 				console.println("Неизвестная команда");
 		}
 	}
