@@ -6,11 +6,14 @@ import android.view.*;
 import android.widget.*;
 
 import Main;
+import android.preference.*;
+import android.content.*;
 
 public class MainActivity extends Activity 
 {
 	public EditText commandField;
 	public TextView console;
+	public SharedPreferences spref;
 	
 	private Console consoleObj;
 	
@@ -22,13 +25,14 @@ public class MainActivity extends Activity
 		
 		commandField = findViewById(R.id.commandField);
 		console = findViewById(R.id.console);
+		spref = PreferenceManager.getDefaultSharedPreferences(this);
 		
 		consoleObj = new Console(this);
 		Main.main(consoleObj);
     }
 	
 	public void onOkButtonClick(View view) {
-		Toast.makeText(this, "Command executed!", Toast.LENGTH_LONG).show();
+		//Toast.makeText(this, "Command executed!", Toast.LENGTH_LONG).show();
 		String input = commandField.getEditableText().toString();
 		commandField.setText("");
 		consoleObj.input(input);

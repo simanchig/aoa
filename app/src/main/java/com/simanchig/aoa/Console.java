@@ -35,4 +35,13 @@ public class Console
 	public void input(String input) {
 		inputHandler.onInput(input);
 	}
+	
+	public void saveInt(String key, int value) {
+		activity.spref.edit().putInt(key, value);
+		activity.spref.edit().commit();
+	}
+	
+	public int loadInt(String key, int _default) {
+		return activity.spref.getInt(key, _default);
+	}
 }

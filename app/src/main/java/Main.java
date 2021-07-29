@@ -30,32 +30,32 @@ public class Main implements InputHandler
 	public static int pwaxe;
 	public static int wood;
 	
-	
-	
+	// Console object
 	public static Console console;
 	
 	public static void main(Console consoleObj) {
+		/* MAIN INITIALIZATION BLOCK =========== */
 		console = consoleObj;
 		new Main();
-		
+		/* END ================================= */
 		
 		//Камни измерений:
-		dimesionStones = 0;
-		KIimortalis = 0;
-		KIgortenzya = 0;
-		KIpyletopia = 0;
+		dimesionStones = console.loadInt("dimension_stones", 0);
+		KIimortalis = console.loadInt("ki_imortalis", 0);
+		KIgortenzya = console.loadInt("ki_gortenzya", 0);
+		KIpyletopia = console.loadInt("ki_pyletopia", 0);
 		//Ресурсы(дерево и тп):
-		wood = 0;
-		runestoned = 0;
-		sticks = 0;
+		wood = console.loadInt("wood", 0);
+		runestoned = console.loadInt("rune_stoned", 0);
+		sticks = console.loadInt("sticks", 0);
 		//Доп.Статистика:
-		homes = 0;
-		activatedportals = 0;
-		deactivatedportals = 0;
+		homes = console.loadInt("homes", 0);
+		activatedportals = console.loadInt("activatedportals", 0);
+		deactivatedportals = console.loadInt("deactivatedportals", 0);
 		// Навыки:
 		  //Анима:
-		lvlanima = 1;
-		xpanima = 0;
+		lvlanima = console.loadInt("lvl_anima", 1);
+		xpanima = console.loadInt("xp_anima", 0);
 		  //Охота:
 		lvloxota = 1;
 		xpoxota = 0;
@@ -74,9 +74,6 @@ public class Main implements InputHandler
 		pwaxe = 100;
 		woodenpickaxe = 0;
 		pwpaxe = 100;
-		
-		
-		
 		
 		console.println("Привет! Начните игру с строительства дома. Пишите команду buildHouse");
 		console.println("___________");
@@ -167,11 +164,7 @@ public class Main implements InputHandler
 				break;
 			case "save":
 				console.clear();
-				GameSaver.save();
-				break;
-			case "load":
-				console.clear();
-				GameSaver.load();
+				saveGame();
 				break;
 			case "reset":
 				console.clear();
@@ -218,14 +211,17 @@ public class Main implements InputHandler
 				console.println("Неизвестная команда");
 		}
 	}
-	
-	
-	
 
+	private static void saveGame()
+	{
+		console.saveInt("deactivated_portals", deactivatedportals);
+	}
 	
 	
+	// INITIAL SETUP =====================
 	public Main() {
 		console.setInputHandler(this);
 	}
+	// END ===============================
 }
 
