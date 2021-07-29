@@ -48,7 +48,7 @@ public class Console
 		activity.spref.edit().putBoolean(key, value).apply();
 	}
 
-	public boolean loadBoal(String key, boolean _default) {
+	public boolean loadBool(String key, boolean _default) {
 		return activity.spref.getBoolean(key, _default);
 	}
 }

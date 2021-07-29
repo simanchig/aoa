@@ -499,5 +499,37 @@ public class CommandHandler {
 	
 	public static void  cmdas() {
 		Main.console.println("Сюжет активирован,начните игру сюжет начнеться когда вы будете путешевствовать по деревням.");
+		AoAS1TOM.beggin();
 	}
+	
+	public static void cmdreset() {
+		Main.dimesionStones = 0;
+		Main.KIimortalis = 0;
+		Main.KIgortenzya = 0;
+		Main.KIpyletopia = 0;
+		Main.wood = 0;
+		Main.runestoned = 0;
+		Main.sticks = 0;
+		Main.homes = 0;
+		Main.activatedportals = 0;
+		Main.deactivatedportals = 0;
+		Main.lvlanima = 1;
+		Main.xpanima = 0;
+		Main.lvloxota = 1;
+		Main.xpoxota = 0;
+		Main.lvltravel = 1;
+		Main.xptravel = 0;
+		Main.xarakstrong = 200;
+		Main.xaraksoul = 200;
+		Main.xarakenergy = 200;
+		Main.xarakanima = 200;
+		Main.energy = 150;
+		Main.woodenaxe = 0;
+		Main.pwaxe = 200;
+		Main.woodenpickaxe = 0;
+		Main.pwpaxe = 200;
+		Main.checkTtoVillage = false;
+		Main.amountPTV = 0;
+		
+   }
 }

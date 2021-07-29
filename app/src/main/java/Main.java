@@ -31,7 +31,7 @@ public class Main implements InputHandler
 	public static int wood;
 	public static int amountPTV;
 	//     СЮЖЕТНЫЕ ПЕРЕМЕННЫЕ:
-	public static int checkTtoVillage;
+	public static boolean checkTtoVillage;
 
 	// Console object
 	public static Console console;
@@ -79,27 +79,30 @@ public class Main implements InputHandler
 		woodenpickaxe = console.loadInt("wooden_pickaxe", 0);
 		pwpaxe = console.loadInt("pwpaxe", 100);
 		//СЮЖЕТ:
-		checkTtoVillage = console.loadInt("checkTtoVillage", 0);
+		checkTtoVillage = console.loadBool("checkTtoVillage", false);
+		amountPTV = console.loadInt("amountPTV",0);
 
 		console.println("Привет! Начните игру с строительства дома. Пишите команду buildHouse");
 		console.println("___________");
 		console.println("ChangeLog:");
-		console.println("Version:БЕТА 1.0.1");
+		console.println("Version:БЕТА 1.1");
 		console.println("Более наполненная контентом версия!Ждите новые обновы скоро будет СЮЖЕТ.");
 		console.println("___________");
 		console.println("Пройдите обучение,команда: help");
 		console.println("__________");
-		console.println("Активация Сюжета- as");
 		console.println("Помошь по сюжету -> hos");
+		console.println("Сюжет активирован,начните игру сюжет начнеться когда вы будете путешевствовать по деревням.");
+		
 	}
 
 	@Override
 	public void onInput(String str)
 	{
+		AoAS1TOM.beggin();
 		other.checkXp();
 		other.checkpwaxe();
 		other.checkpwpaxe();
-		CommandHandler.cmdas();
+		
 
 		switch (str)
 		{
@@ -175,9 +178,6 @@ public class Main implements InputHandler
 				console.clear();
 				saveGame();
 				break;
-			case "reset":
-
-				break;
 			case "help":
 				console.clear();
 				Help.help();
@@ -215,7 +215,14 @@ public class Main implements InputHandler
 			case "cp":
 				pwaxe = 0;
 				break;
-				
+			case "reset":
+				console.clear();
+				CommandHandler.cmdreset();
+				console.println("Успешно!");
+				break;
+			case "amount":
+				console.println("pp" + amountPTV);
+				break;
 			default:
 				console.clear();
 				console.println("Неизвестная команда");
@@ -249,6 +256,8 @@ public class Main implements InputHandler
 		console.saveInt("wooden_axe", woodenaxe);
 		console.saveInt("pwaxe", pwaxe);
 		console.saveInt("wooden_pickaxe", woodenpickaxe);
+		console.saveInt("amountPTV", amountPTV);
+		console.saveBool("checkTtoVillage", checkTtoVillage);
 	}
 
 
