@@ -43,4 +43,12 @@ public class Console
 	public int loadInt(String key, int _default) {
 		return activity.spref.getInt(key, _default);
 	}
+	
+	public void saveBool(String key, boolean value) {
+		activity.spref.edit().putBoolean(key, value).apply();
+	}
+
+	public boolean loadBoal(String key, boolean _default) {
+		return activity.spref.getBoolean(key, _default);
+	}
 }
