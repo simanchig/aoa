@@ -99,6 +99,7 @@ public class Main implements InputHandler
 		other.checkXp();
 		other.checkpwaxe();
 		other.checkpwpaxe();
+		CommandHandler.cmdas();
 
 		switch (str)
 		{
@@ -214,11 +215,7 @@ public class Main implements InputHandler
 			case "cp":
 				pwaxe = 0;
 				break;
-			case "as":
-				console.clear();
-				CommandHandler.cmdas();
 				
-				break;
 			default:
 				console.clear();
 				console.println("Неизвестная команда");
