@@ -37,8 +37,7 @@ public class Console
 	}
 	
 	public void saveInt(String key, int value) {
-		activity.spref.edit().putInt(key, value);
-		activity.spref.edit().commit();
+		activity.spref.edit().putInt(key, value).apply();
 	}
 	
 	public int loadInt(String key, int _default) {

@@ -3,7 +3,7 @@ import com.simanchig.aoa.*;
 
 public class Main implements InputHandler
 {
-	
+
 	public static int deactivatedportals;
 	public static int activatedportals;
 	public static int dimesionStones;
@@ -29,16 +29,20 @@ public class Main implements InputHandler
 	public static int homes;
 	public static int pwaxe;
 	public static int wood;
-	
+	public static int amountPTV;
+	//     СЮЖЕТНЫЕ ПЕРЕМЕННЫЕ:
+	public static int checkTtoVillage;
+
 	// Console object
 	public static Console console;
-	
-	public static void main(Console consoleObj) {
+
+	public static void main(Console consoleObj)
+	{
 		/* MAIN INITIALIZATION BLOCK =========== */
 		console = consoleObj;
 		new Main();
 		/* END ================================= */
-		
+
 		//Камни измерений:
 		dimesionStones = console.loadInt("dimension_stones", 0);
 		KIimortalis = console.loadInt("ki_imortalis", 0);
@@ -53,28 +57,30 @@ public class Main implements InputHandler
 		activatedportals = console.loadInt("activatedportals", 0);
 		deactivatedportals = console.loadInt("deactivatedportals", 0);
 		// Навыки:
-		  //Анима:
+		//Анима:
 		lvlanima = console.loadInt("lvl_anima", 1);
 		xpanima = console.loadInt("xp_anima", 0);
-		  //Охота:
-		lvloxota = 1;
-		xpoxota = 0;
-		  //Путешевтвие:
-		lvltravel = 1;
-		xptravel = 0;
+		//Охота:
+		lvloxota = console.loadInt("lvl_oxota", 1);
+		xpoxota = console.loadInt("xp_oxota", 0);
+		//Путешевтвие:
+		lvltravel = console.loadInt("lvl_travel", 1);
+		xptravel = console.loadInt("xp_travel", 0);
 		//Характеристики:
-		xarakstrong = 200;
-		xaraksoul = 200;
-		xarakenergy = 200;
-		xarakanima = 200;
+		xarakstrong = console.loadInt("xarak_strong", 200);
+		xaraksoul = console.loadInt("xarak_soul", 200);
+		xarakenergy = console.loadInt("xarak_energy", 200);
+		xarakanima = console.loadInt("xarak_anima", 200);
 		//ДРУГОЕ:
-		energy = 150;
+		energy = console.loadInt("energy", 150);
 		//Инструменты:
-		woodenaxe = 0;
-		pwaxe = 100;
-		woodenpickaxe = 0;
-		pwpaxe = 100;
-		
+		woodenaxe = console.loadInt("wooden_axe", 0);
+		pwaxe = console.loadInt("pwaxe", 100);
+		woodenpickaxe = console.loadInt("wooden_pickaxe", 0);
+		pwpaxe = console.loadInt("pwpaxe", 100);
+		//СЮЖЕТ:
+		checkTtoVillage = console.loadInt("checkTtoVillage", 0);
+
 		console.println("Привет! Начните игру с строительства дома. Пишите команду buildHouse");
 		console.println("___________");
 		console.println("ChangeLog:");
@@ -83,9 +89,10 @@ public class Main implements InputHandler
 		console.println("___________");
 		console.println("Пройдите обучение,команда: help");
 		console.println("__________");
-		console.println("Помошь по сюжету -> hos(НЕ РАБОТАЕТ");
+		console.println("Активация Сюжета- as");
+		console.println("Помошь по сюжету -> hos");
 	}
-	
+
 	@Override
 	public void onInput(String str)
 	{
@@ -93,7 +100,8 @@ public class Main implements InputHandler
 		other.checkpwaxe();
 		other.checkpwpaxe();
 
-		switch(str) {
+		switch (str)
+		{
 			case "create":
 				console.clear();
 				CommandHandler.cmdcreate();
@@ -101,7 +109,7 @@ public class Main implements InputHandler
 			case "make Pyletopia":
 				console.clear();
 				CommandHandler.cmdmakepyletopia();
-					break;
+				break;
 			case "make Immortalis":
 				console.clear();
 				CommandHandler.cmdmakeimmortalis();
@@ -167,8 +175,7 @@ public class Main implements InputHandler
 				saveGame();
 				break;
 			case "reset":
-				console.clear();
-				GameSaver.reset();
+
 				break;
 			case "help":
 				console.clear();
@@ -180,7 +187,7 @@ public class Main implements InputHandler
 			case "hos":
 				console.clear();
 				CommandHandler.cmdhos();
-					break;
+				break;
 			case "hp":
 				CommandHandler.cmdhp();
 				break;
@@ -189,6 +196,7 @@ public class Main implements InputHandler
 				break;
 			case "pt village":
 				console.clear();
+				amountPTV ++;
 				CommandHandler.cmdptVillage();
 				break;
 			case "create Sticks":
@@ -206,6 +214,11 @@ public class Main implements InputHandler
 			case "cp":
 				pwaxe = 0;
 				break;
+			case "as":
+				console.clear();
+				CommandHandler.cmdas();
+				
+				break;
 			default:
 				console.clear();
 				console.println("Неизвестная команда");
@@ -215,11 +228,36 @@ public class Main implements InputHandler
 	private static void saveGame()
 	{
 		console.saveInt("deactivated_portals", deactivatedportals);
+		console.saveInt("dimension_stones", dimesionStones);
+		console.saveInt("ki_imortalis", KIimortalis);
+		console.saveInt("ki_gortenzya", KIgortenzya);
+		console.saveInt("ki_pyletopia", KIpyletopia);
+		console.saveInt("wood", wood);
+		console.saveInt("rune_stoned", runestoned);
+		console.saveInt("sticks", sticks);
+		console.saveInt("homes", homes);
+		console.saveInt("activatedportals", activatedportals);
+		console.saveInt("pwpaxe", pwpaxe);
+		console.saveInt("lvl_anima", lvlanima);
+		console.saveInt("xp_anima", xpanima);
+		console.saveInt("lvl_oxota", lvloxota);
+		console.saveInt("xp_oxota", xpoxota);
+		console.saveInt("lvl_travel", lvltravel);
+		console.saveInt("xp_travel", xptravel);
+		console.saveInt("xarak_strong", xarakstrong);
+		console.saveInt("xarak_soul", xaraksoul);
+		console.saveInt("xarak_energy", xarakenergy);
+		console.saveInt("xarak_anima", xarakanima);
+		console.saveInt("energy", energy);
+		console.saveInt("wooden_axe", woodenaxe);
+		console.saveInt("pwaxe", pwaxe);
+		console.saveInt("wooden_pickaxe", woodenpickaxe);
 	}
-	
-	
+
+
 	// INITIAL SETUP =====================
-	public Main() {
+	public Main()
+	{
 		console.setInputHandler(this);
 	}
 	// END ===============================

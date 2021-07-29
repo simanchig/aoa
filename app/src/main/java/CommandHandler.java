@@ -496,4 +496,8 @@ public class CommandHandler {
 			Main.console.println("Вам недостаточно энергии!Надо 2 ,у вас: " + Main.energy + ".");
 		}
     }
+	
+	public static void  cmdas() {
+		Main.console.println("Сюжет активирован,начните игру сюжет начнеться когда вы будете путешевствовать по деревням.");
+	}
 }

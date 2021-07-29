@@ -47,6 +47,9 @@ public class Help
 		Main.console.println("18. hp - Вызывает помощь по Порталам");
 		Main.console.println("_____________");
 		Main.console.println("19. hi - Вызывает список всех измерний");
+		Main.console.println("_____________");
+		Main.console.println("20. as- Активация Сюжета");
+		Main.console.println("_____________");
 		
 	}
 }
