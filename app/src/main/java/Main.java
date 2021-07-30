@@ -98,7 +98,7 @@ public class Main implements InputHandler
 	@Override
 	public void onInput(String str)
 	{
-		AoAS1TOM.beggin();
+		
 		other.checkXp();
 		other.checkpwaxe();
 		other.checkpwpaxe();
@@ -227,6 +227,7 @@ public class Main implements InputHandler
 				console.clear();
 				console.println("Неизвестная команда");
 		}
+		AoAS1TOM.beggin();
 	}
 
 	private static void saveGame()
