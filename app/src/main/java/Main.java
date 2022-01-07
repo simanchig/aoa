@@ -80,7 +80,7 @@ public class Main implements InputHandler
 		pwpaxe = console.loadInt("pwpaxe", 100);
 		//СЮЖЕТ:
 		checkTtoVillage = console.loadBool("checkTtoVillage", false);
-		amountPTV = console.loadInt("amountPTV",0);
+		amountPTV = console.loadInt("amountPTV", 0);
 
 		console.println("Привет! Начните игру с строительства дома. Пишите команду buildHouse");
 		console.println("___________");
@@ -92,17 +92,17 @@ public class Main implements InputHandler
 		console.println("__________");
 		console.println("Помошь по сюжету -> hos");
 		console.println("Сюжет активирован,начните игру сюжет начнеться когда вы будете путешевствовать по деревням.");
-		
+
 	}
 
 	@Override
 	public void onInput(String str)
 	{
-		
+
 		other.checkXp();
 		other.checkpwaxe();
 		other.checkpwpaxe();
-		
+
 
 		switch (str)
 		{
@@ -261,12 +261,9 @@ public class Main implements InputHandler
 		console.saveBool("checkTtoVillage", checkTtoVillage);
 	}
 
-
-	// INITIAL SETUP =====================
 	public Main()
 	{
-		console.setInputHandler(this);
+		console.addInputHandler(this);
 	}
-	// END ===============================
 }
 
