@@ -12,30 +12,30 @@ import android.content.*;
 public class MainActivity extends Activity 
 {
 	public EditText commandField;
-	public TextView console;
+	public TextView consoleOutput;
+	
 	public SharedPreferences spref;
-	
-	private Console consoleObj;
-	
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-		
+
 		commandField = findViewById(R.id.commandField);
-		console = findViewById(R.id.console);
+		consoleOutput = findViewById(R.id.console);
 		spref = PreferenceManager.getDefaultSharedPreferences(this);
-		
-		consoleObj = new Console(this);
-		Main.main(consoleObj);
+
+		new Console(this);
+		new Main();
     }
-	
-	public void onOkButtonClick(View view) {
+
+	public void onOkButtonClick(View view)
+	{
 		//Toast.makeText(this, "Command executed!", Toast.LENGTH_LONG).show();
 		String input = commandField.getEditableText().toString();
 		commandField.setText("");
-		consoleObj.input(input);
+		
+		Console.invokeInputHandler(input);
 	}
-	
 }
