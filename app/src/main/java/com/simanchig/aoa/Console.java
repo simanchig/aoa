@@ -4,44 +4,55 @@ import java.util.*;
 
 public class Console
 {
-	private List<InputHandler> inputHandlers;
-	private MainActivity activity;
+	public static VariableSaver saver;
+	
+	private final List<InputHandler> inputHandlers;
+	private final MainActivity activity;
+	
+	private static Console _singleton;
 
 	public Console(MainActivity activity)
 	{
+		if(_singleton != null)
+		{
+			throw new RuntimeException("Second instance of singleton was created.");
+		}
+		
+		_singleton = this;
+		
 		inputHandlers = new ArrayList<InputHandler>();
-
+		saver = new VariableSaver(activity.spref, this);
 		this.activity = activity;
 	}
 
-	public void addInputHandler(InputHandler handler)
+	public static void addInputHandler(InputHandler handler)
 	{
-		inputHandlers.add(handler);
+		_singleton.inputHandlers.add(handler);
 	}
 
-	public void removeInputHandler(InputHandler handler)
+	public static void removeInputHandler(InputHandler handler)
 	{
-		inputHandlers.remove(handler);
+		_singleton.inputHandlers.remove(handler);
 	}
 
-	public void print(String string)
+	public static void print(String string)
 	{
-		activity.consoleOutput.setText(activity.consoleOutput.getText() + string);
+		_singleton.activity.consoleOutput.setText(_singleton.activity.consoleOutput.getText() + string);
 	}
 
-	public void println(String string)
+	public static void println(String string)
 	{
-		activity.consoleOutput.setText(activity.consoleOutput.getText() + string + "\n");
+		_singleton.activity.consoleOutput.setText(_singleton.activity.consoleOutput.getText() + string + "\n");
 	}
 
-	public void clear()
+	public static void clear()
 	{
-		activity.consoleOutput.setText("");
+		_singleton.activity.consoleOutput.setText("");
 	}
 	
-	public void invokeInputHandler(String input)
+	public static void invokeInputHandler(String input)
 	{
-		for(InputHandler handler : inputHandlers)
+		for(InputHandler handler : _singleton.inputHandlers)
 		{
 			handler.onInput(input);
 		}
@@ -49,21 +60,23 @@ public class Console
 
 	public void saveInt(String key, int value)
 	{
-		activity.spref.edit().putInt(key, value).apply();
+		//activity.spref.edit().putInt(key, value).apply();
 	}
 
 	public int loadInt(String key, int _default)
 	{
-		return activity.spref.getInt(key, _default);
+		return _default;
+		//return activity.spref.getInt(key, _default);
 	}
 
 	public void saveBool(String key, boolean value)
 	{
-		activity.spref.edit().putBoolean(key, value).apply();
+		//activity.spref.edit().putBoolean(key, value).apply();
 	}
 
 	public boolean loadBool(String key, boolean _default)
 	{
-		return activity.spref.getBoolean(key, _default);
+		return _default;
+		//return activity.spref.getBoolean(key, _default);
 	}
 }

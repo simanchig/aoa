@@ -16,8 +16,6 @@ public class MainActivity extends Activity
 	
 	public SharedPreferences spref;
 
-	private Console console;
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -28,8 +26,8 @@ public class MainActivity extends Activity
 		consoleOutput = findViewById(R.id.console);
 		spref = PreferenceManager.getDefaultSharedPreferences(this);
 
-		console = new Console(this);
-		Main.main(console);
+		new Console(this);
+		new Main();
     }
 
 	public void onOkButtonClick(View view)
@@ -38,7 +36,6 @@ public class MainActivity extends Activity
 		String input = commandField.getEditableText().toString();
 		commandField.setText("");
 		
-		console.invokeInputHandler(input);
+		Console.invokeInputHandler(input);
 	}
-
 }
