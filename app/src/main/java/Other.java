@@ -1,7 +1,7 @@
 
 import com.simanchig.aoa.*;
 
-public class other
+public class Other
 {
 	public static void pki()
 	{

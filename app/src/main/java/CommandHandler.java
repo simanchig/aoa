@@ -1,6 +1,7 @@
 
 import com.simanchig.aoa.*;
 
+// ATTENTION: Нужно этот класс-монстр разбить
 public class CommandHandler
 {
 	public static void cmdSkills()
@@ -13,7 +14,7 @@ public class CommandHandler
 	    Console.println("Путешевствие - " + Main.lvltravel + " уровень. Опыт: " + Main.xptravel + "xp.");
 		Console.println("__________");
 		Console.println("Другое: ");
-		other.stats();
+		Other.stats();
 	}
 
 	public static void cmdKill()
@@ -177,7 +178,7 @@ public class CommandHandler
 	{
 		if (Main.energy >= 2)
 		{
-			other.pki();
+			Other.pki();
 			Main.energy -= 2;
 			Console.println("----------------");
 			Console.println("Энергия: " + Main.energy + ".");

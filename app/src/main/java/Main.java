@@ -3,41 +3,52 @@ import com.simanchig.aoa.*;
 
 public class Main implements InputHandler
 {
-	@Save public static int deactivatedportals;
-	@Save public static int activatedportals;
 	@Save public static int dimesionStones;
-	@Save public static int woodenpickaxe;
-	@Save public static int KIimortalis;
-	@Save public static int KIgortenzya;
-	@Save public static int KIpyletopia;
-	@Save public static int xarakstrong;
-	@Save public static int xarakenergy;
-	@Save public static int xarakanima;
-	@Save public static int runestoned;
-	@Save public static int woodenaxe;
-	@Save public static int lvltravel;
-	@Save public static int xaraksoul;
-	@Save public static int xptravel;
-	@Save public static int lvlanima;
-	@Save public static int lvloxota;
-	@Save public static int xpanima;
-	@Save public static int xpoxota;
-	@Save public static int energy;
-	@Save public static int sticks;
-	@Save public static int pwpaxe;
-	@Save public static int homes;
-	@Save public static int pwaxe;
-	@Save public static int wood;
-	@Save public static int amountPTV;
+	
+	@Save public static int woodenpickaxe = 0;
+	@Save public static int woodenaxe = 0;
+	@Save public static int pwpaxe = 100;
+	@Save public static int pwaxe = 100;
+	
+	@Save public static int KIimortalis = 0;
+	@Save public static int KIgortenzya = 0;
+	@Save public static int KIpyletopia = 0;
+	
+	@Save public static int xarakstrong = 200;
+	@Save public static int xarakenergy = 200;
+	@Save public static int xarakanima = 200;
+	@Save public static int xaraksoul = 200;
+	
+	@Save public static int lvltravel = 1;
+	@Save public static int xptravel = 0;
+	
+	@Save public static int lvlanima = 1;
+	@Save public static int xpanima = 0;
+	
+	@Save public static int lvloxota = 1;
+	@Save public static int xpoxota = 0;
+	
+	@Save public static int energy = 150;
+	
+	@Save public static int homes = 0;
+	@Save public static int deactivatedportals = 0;
+	@Save public static int activatedportals = 0;
+	
+	@Save public static int wood = 0;
+	@Save public static int runestoned = 0;
+	@Save public static int sticks = 0;
+	
+	@Save public static int amountPTV = 0;
 
 	// СЮЖЕТНЫЕ ПЕРЕМЕННЫЕ:
-	@Save public static boolean checkTtoVillage;
+	@Save public static boolean checkTtoVillage = false;
 
 	public Main()
 	{
 		// MAIN: Инициализация
 		Console.addInputHandler(this);
-
+		
+		// OBSOLETE: Теперь так загружать не нужно
 		/*
 		//Камни измерений:
 		dimesionStones = Console.loadInt("dimension_stones", 0);
@@ -97,10 +108,9 @@ public class Main implements InputHandler
 	@Override
 	public void onInput(String str)
 	{
-		other.checkXp();
-		other.checkpwaxe();
-		other.checkpwpaxe();
-
+		Other.checkXp();
+		Other.checkpwaxe();
+		Other.checkpwpaxe();
 
 		switch (str)
 		{
