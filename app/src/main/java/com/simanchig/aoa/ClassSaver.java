@@ -3,15 +3,13 @@ package com.simanchig.aoa;
 import java.lang.reflect.*;
 import android.content.*;
 
-public class VariableSaver
+public class ClassSaver
 {
 	private SharedPreferences _prefs;
-	private Console _console;
 
-	public VariableSaver(SharedPreferences prefs, Console console)
+	public ClassSaver(SharedPreferences prefs, Console console)
 	{
 		_prefs = prefs;
-		_console = console;
 	}
 	
 	public void save(Object object)
@@ -42,27 +40,21 @@ public class VariableSaver
 		
 		try
 		{
+			if (_prefs.contains(fieldName) == false) return;
+			
 			if (field.getType() == Integer.class)
-			{
-				if (_prefs.contains(fieldName) == false) return;
-
 				field.set(object, _prefs.getInt(field.getName(), 0));
-			}
 
 			if (field.getType() == Boolean.class)
-			{
-				if (_prefs.contains(fieldName) == false) return;
-
 				field.set(object, _prefs.getBoolean(field.getName(), false));
-			}
 		}
 		catch (IllegalAccessException e)
 		{
-			_console.println("Failed to access " + fieldName);
+			Console.log("Failed to access " + fieldName);
 		}
 		catch (IllegalArgumentException e)
 		{
-			_console.println(fieldName + " load error");
+			Console.log(fieldName + " load error");
 		}
 	}
 
@@ -73,22 +65,18 @@ public class VariableSaver
 		try
 		{
 			if (field.getType() == Integer.class)
-			{
-				_prefs.edit().putInt(fieldName, field.getInt(object)).apply();
-			}
-
+				Console.saveInt(fieldName, field.getInt(object));
+			
 			if (field.getType() == Boolean.class)
-			{
-				_prefs.edit().putBoolean(fieldName, field.getBoolean(object)).apply();
-			}
+				Console.saveBool(fieldName, field.getBoolean(object));
 		}
 		catch (IllegalAccessException e)
 		{
-			_console.println("Failed to access " + fieldName);
+			Console.log("Failed to access " + fieldName);
 		}
 		catch (IllegalArgumentException e)
 		{
-			_console.println(fieldName + " save error");
+			Console.log(fieldName + " save error");
 		}
 	}
 }

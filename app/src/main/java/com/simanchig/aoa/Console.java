@@ -4,10 +4,11 @@ import java.util.*;
 
 public class Console
 {
-	public static VariableSaver saver;
+	public static ClassSaver saver;
 	
 	private final List<InputHandler> inputHandlers;
 	private final MainActivity activity;
+	private final StringBuilder logs;
 	
 	private static Console _singleton;
 
@@ -20,8 +21,9 @@ public class Console
 		
 		_singleton = this;
 		
+		logs = new StringBuilder();
 		inputHandlers = new ArrayList<InputHandler>();
-		saver = new VariableSaver(activity.spref, this);
+		saver = new ClassSaver(activity.spref, this);
 		this.activity = activity;
 	}
 
@@ -44,6 +46,17 @@ public class Console
 	{
 		_singleton.activity.consoleOutput.setText(_singleton.activity.consoleOutput.getText() + string + "\n");
 	}
+	
+	public static void printLogs()
+	{
+		clear();
+		println(_singleton.logs.toString());
+	}
+	
+	public static void log(String string)
+	{
+		_singleton.logs.append(string + "\n");
+	}
 
 	public static void clear()
 	{
@@ -58,25 +71,23 @@ public class Console
 		}
 	}
 
-	public void saveInt(String key, int value)
+	public static void saveInt(String key, int value)
 	{
-		//activity.spref.edit().putInt(key, value).apply();
+		_singleton.activity.spref.edit().putInt(key, value).apply();
 	}
 
-	public int loadInt(String key, int _default)
+	public static int loadInt(String key, int _default)
 	{
-		return _default;
-		//return activity.spref.getInt(key, _default);
+		return _singleton.activity.spref.getInt(key, _default);
 	}
 
-	public void saveBool(String key, boolean value)
+	public static void saveBool(String key, boolean value)
 	{
-		//activity.spref.edit().putBoolean(key, value).apply();
+		_singleton.activity.spref.edit().putBoolean(key, value).apply();
 	}
 
-	public boolean loadBool(String key, boolean _default)
+	public static boolean loadBool(String key, boolean _default)
 	{
-		return _default;
-		//return activity.spref.getBoolean(key, _default);
+		return _singleton.activity.spref.getBoolean(key, _default);
 	}
 }

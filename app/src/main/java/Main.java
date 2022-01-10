@@ -48,48 +48,6 @@ public class Main implements InputHandler
 		// MAIN: Инициализация
 		Console.addInputHandler(this);
 		
-		// OBSOLETE: Теперь так загружать не нужно
-		/*
-		//Камни измерений:
-		dimesionStones = Console.loadInt("dimension_stones", 0);
-		KIimortalis = Console.loadInt("ki_imortalis", 0);
-		KIgortenzya = Console.loadInt("ki_gortenzya", 0);
-		KIpyletopia = Console.loadInt("ki_pyletopia", 0);
-		//Ресурсы(дерево и тп):
-		wood = Console.loadInt("wood", 0);
-		runestoned = Console.loadInt("rune_stoned", 0);
-		sticks = Console.loadInt("sticks", 0);
-		//Доп.Статистика:
-		homes = Console.loadInt("homes", 0);
-		activatedportals = Console.loadInt("activatedportals", 0);
-		deactivatedportals = Console.loadInt("deactivatedportals", 0);
-		// Навыки:
-		//Анима:
-		lvlanima = Console.loadInt("lvl_anima", 1);
-		xpanima = Console.loadInt("xp_anima", 0);
-		//Охота:
-		lvloxota = Console.loadInt("lvl_oxota", 1);
-		xpoxota = Console.loadInt("xp_oxota", 0);
-		//Путешевтвие:
-		lvltravel = Console.loadInt("lvl_travel", 1);
-		xptravel = Console.loadInt("xp_travel", 0);
-		//Характеристики:
-		xarakstrong = Console.loadInt("xarak_strong", 200);
-		xaraksoul = Console.loadInt("xarak_soul", 200);
-		xarakenergy = Console.loadInt("xarak_energy", 200);
-		xarakanima = Console.loadInt("xarak_anima", 200);
-		//ДРУГОЕ:
-		energy = Console.loadInt("energy", 150);
-		//Инструменты:
-		woodenaxe = Console.loadInt("wooden_axe", 0);
-		pwaxe = Console.loadInt("pwaxe", 100);
-		woodenpickaxe = Console.loadInt("wooden_pickaxe", 0);
-		pwpaxe = Console.loadInt("pwpaxe", 100);
-		//СЮЖЕТ:
-		checkTtoVillage = Console.loadBool("checkTtoVillage", false);
-		amountPTV = Console.loadInt("amountPTV", 0);
-		*/
-
 		// MAIN: Загрузка всех переменных
 		Console.saver.load(this);
 
@@ -242,35 +200,6 @@ public class Main implements InputHandler
 	{
 		// MAIN: Использовать этот для сохранения
 		Console.saver.save(this);
-
-		// OBSOLETE: Это все не нужно
-		/* Console.saveInt("deactivated_portals", deactivatedportals);
-		Console.saveInt("dimension_stones", dimesionStones);
-		Console.saveInt("ki_imortalis", KIimortalis);
-		Console.saveInt("ki_gortenzya", KIgortenzya);
-		Console.saveInt("ki_pyletopia", KIpyletopia);
-		Console.saveInt("wood", wood);
-		Console.saveInt("rune_stoned", runestoned);
-		Console.saveInt("sticks", sticks);
-		Console.saveInt("homes", homes);
-		Console.saveInt("activatedportals", activatedportals);
-		Console.saveInt("pwpaxe", pwpaxe);
-		Console.saveInt("lvl_anima", lvlanima);
-		Console.saveInt("xp_anima", xpanima);
-		Console.saveInt("lvl_oxota", lvloxota);
-		Console.saveInt("xp_oxota", xpoxota);
-		Console.saveInt("lvl_travel", lvltravel);
-		Console.saveInt("xp_travel", xptravel);
-		Console.saveInt("xarak_strong", xarakstrong);
-		Console.saveInt("xarak_soul", xaraksoul);
-		Console.saveInt("xarak_energy", xarakenergy);
-		Console.saveInt("xarak_anima", xarakanima);
-		Console.saveInt("energy", energy);
-		Console.saveInt("wooden_axe", woodenaxe);
-		Console.saveInt("pwaxe", pwaxe);
-		Console.saveInt("wooden_pickaxe", woodenpickaxe);
-		Console.saveInt("amountPTV", amountPTV);
-		Console.saveBool("checkTtoVillage", checkTtoVillage); */
 	}
 }
 
